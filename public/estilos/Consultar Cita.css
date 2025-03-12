@@ -1,0 +1,430 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos globales */
+body {
+  font-family: "CentSchbkCyrill BT";
+  margin: 0;
+  padding: 0;
+  background-image: url("/img/fondo\ crear\ cita.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: white;
+  color: #0d54a1;
+  font-size: small;
+  padding: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-family: "Arial", sans-serif;
+  font-size: 20px;
+  margin-right: auto;
+  margin-left: 13%;
+  padding: 0px;
+}
+
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
+}
+
+.logo-text {
+  color: rgb(83, 79, 79);
+  font-family: "CentSchbkCyrill BT";
+  font-size: 19px;
+  margin-left: auto;
+  text-align: center;
+  padding: 3%;
+}
+
+/* Menú desplegable */
+/*estilo del botón del menú */
+.menu {
+  position: relative;
+  display: inline-block;
+  margin-left: 1, 2%;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.menu button {
+  background-color: white;
+  color: black;
+  padding: 15px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/*Contenedor del  menú */
+.menu-contenido {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 9px;
+}
+
+/* Intem del menú principal*/
+.items-menu {
+  position: relative;
+}
+
+/* submenú */
+.submenu-button {
+  padding: 12px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.submenu-button.active {
+  background: #0056b3; /* Cambia el color de fondo cuando está desplegado */
+  color: white; /* Cambia el color del texto */
+}
+
+/*contenedor del Submenú*/
+.submenu-contenido {
+  display: none;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+.submenu-contenido a {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+/* cambiar de color en cada item al pasar el mouse sobre el submenú */
+.submenu-contenido a:hover {
+  background-color: #ddd;
+}
+
+/*muestra el menú al hacer clic*/
+.show {
+  display: block;
+}
+
+/*cerrar sesión*/
+.cerrar_sesion {
+  display: inline;
+  background-color: #f1f1f1;
+  padding-left: 0px;
+}
+
+.cerrar_sesion a {
+  color: #0056b3;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-align: right;
+  margin-right: 13px;
+}
+
+.cerrar_sesion a:hover {
+  text-decoration: underline;
+}
+.cerrar_sesion a span {
+  margin-right: 3px;
+}
+/* Formulario */
+
+.container {
+  width: 85%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.cuadro-formulario {
+  border-radius: 15px;
+  width: 100%;
+  height: 35%;
+  background-color: white;
+}
+
+.legenda {
+  font-size: 20px;
+  color: #0d54a1;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+  grid-gap: 10px; /* Espaciado entre las columnas */
+  margin-left: 130px;
+  margin-right: 120px;
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Tres columnas de igual tamaño */
+  grid-gap: 10px; /* Espaciado entre las columnas */
+  margin-left: 130px;
+  margin-right: 120px;
+}
+
+input,
+select {
+  font-family: "Bookman Old Style";
+  width: 250px;
+  margin-bottom: 1px;
+  border-radius: 10px;
+  padding: 3px;
+  border: 1px solid #052661;
+  box-sizing: border-box;
+  background-color: rgb(255, 254, 254);
+  text-align: justify;
+}
+textarea {
+  font-family: "Bookman Old Style";
+  margin-bottom: 1px;
+  border-radius: 10px;
+  height: 150px;
+  width: 400px;
+  border: 1px solid #052661;
+  box-sizing: border-box;
+  background-color: rgb(255, 254, 254);
+  resize: none;
+}
+
+label {
+  font-family: "Bookman Old ";
+  font-size: 15px;
+  color: #080f4d;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.radio-group {
+  width: 70px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-top: -24px;
+}
+
+.radio-group label {
+  font-family: "Bookman Old ";
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+/*icono de fechas*/
+.icon-calendario {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-calendario input[type="date"] {
+  font-family: "Bookman Old Style";
+  width: 250px;
+  margin-bottom: 1px;
+  border-radius: 10px;
+  padding: 3px;
+  border: 1px solid #052661;
+  box-sizing: border-box;
+  background-color: rgb(255, 254, 254);
+  text-align: center;
+}
+
+.icon-calendario input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0; /* Ocultar icono*/
+}
+
+.icon-calendario::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  right: 3px;
+  transform: translateY(-50%);
+  background-image: url("/img/calendary.png"); /* URL del icono personalizado */
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  pointer-events: none; /* No permite interactuar con el ícono */
+}
+
+/*icono hora de cita*/
+.icon-hora {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-hora input[type="time"] {
+  font-family: "Bookman Old Style";
+  width: 250px;
+  margin-bottom: 1px;
+  border-radius: 10px;
+  padding: 3px;
+  border: 1px solid #052661;
+  box-sizing: border-box;
+  background-color: rgb(255, 254, 254);
+  text-align: center;
+}
+
+.icon-hora input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0; /* Ocultar icono*/
+}
+
+.icon-hora::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  right: 3px;
+  transform: translateY(-50%);
+  background-image: url("/img/reloj1.png"); /* URL del icono personalizado */
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  pointer-events: none; /* No permite interactuar con el ícono */
+}
+
+/*icono selección*/
+.icon-seleccion {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-seleccion input[type="select"] {
+  font-family: "Bookman Old Style";
+  width: 250px;
+  margin-bottom: 1px;
+  border-radius: 10px;
+  padding: 3px;
+  border: 1px solid #052661;
+  box-sizing: border-box;
+  background-color: rgb(255, 254, 254);
+  text-align: center;
+}
+
+.icon-seleccion input[type="select"]::-webkit-calendar-picker-indicator {
+  opacity: 0; /* Ocultar icono*/
+}
+
+.icon-seleccion::after {
+  content: "";
+  position: absolute;
+  top: 49.4%;
+  right: 0px;
+  border: 1.5px solid #052661;
+  border-radius: 7px;
+  transform: translateY(-50%);
+  background-image: url("/img/seleccione.png"); /* URL del icono personalizado */
+  background-size: 22px 22px;
+  width: 22px;
+  height: 22px;
+  pointer-events: none; /* No permite interactuar con el ícono */
+}
+/* Contenedor de los botones */
+.buton-contenedor {
+  display: flex;
+  justify-content: flex-start; /* Alinea los botones a la izquierda */
+  align-items: flex-start; /* Alinea los botones en la parte superior */
+  padding: 0px;
+  gap: 10px; /* Espacio entre botones */
+  position: absolute; /* Posiciona el contenedor de manera absoluta */
+  top: 10.1%; /* Lo coloca en la parte superior */
+  left: 9%; /* Lo coloca en la parte izquierda */
+  margin: 10px; /* Margen para separarlo del borde */
+}
+
+/* Estilo base para los botones */
+/* Botón Buscar */
+.btn-buscar {
+  padding: 3px 3px; /* Aumenta el padding para mejor apariencia */
+  font-size: 20px; /* Tamaño de fuente ligeramente reducido */
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #1f5fce;
+}
+
+.icon-magnifying-glass {
+  color: white;
+}
+
+.btn-buscar:hover {
+  background-color: #0a4d96; /* Azul más claro */
+  transform: scale(1.05); /* Efecto de ampliación */
+}
+/* Botón Limpiar*/
+.btn-limpiar {
+  padding: 4.5px 4.5px; /* Aumenta el padding para mejor apariencia */
+  font-size: 17px; /* Tamaño de fuente ligeramente reducido */
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: rgb(165, 163, 163);
+}
+
+.icon-clipboard {
+  color: white;
+}
+
+.btn-limpiar:hover {
+  background-color: grey; /* Azul más claro */
+  transform: scale(1.05); /* Efecto de ampliación */
+}
+
+/* Efecto de clic */
+.btn-limpiar:active,
+.btn-buscar:active {
+  transform: scale(0.95); /* Reduce ligeramente al hacer clic */
+}
+
+/* Estilos para el pie de página */
+footer {
+  margin-top: 50px;
+  background-color: #0d54a1;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: flex;
+  width: 100%;
+  bottom: 0;
+  display: grid;
+}
+
+/*icono Boton*/
+.icon-save {
+  margin-right: 9px;
+  font-size: 18px;
+}
+
+.icon-circle-with-cross {
+  margin-right: 9px;
+  font-size: 18px;
+}

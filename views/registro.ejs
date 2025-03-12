@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="/estilos/Registro.css" />
+  </head>
+  <body>
+    <% if(typeof mensaje !== "undefined" && mensaje) { %>
+    <div
+      style="
+        color: rgb(8, 17, 94);
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        position: fixed; /* Fija el mensaje en la pantalla */
+        top: 0; /* Lo coloca en la parte superior */
+        left: 50%; /* Lo mueve al centro horizontal */
+        transform: translateX(-50%); /* Ajusta el centrado */
+        background-color: #e8e9f5;
+        width: 48%; /* Ancho del mensaje */
+        padding: 10px;
+        border: 1px solid #4c56af;
+        border-radius: 5px;
+        margin-top: 30px; /* Espacio desde la parte superior */
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+      "
+    >
+      <p><%=mensaje %></p>
+    </div>
+    <% } %>
+
+    <div class="login-container">
+      <div class="login-box">
+        <img
+          src="/img/Logo psicogestor.png"
+          alt="Logo_psicogestro"
+          class="logo"
+        />
+        <h3 class="h3_psicogestor">Registro PsicoGESTOR</h3>
+      </div>
+
+      <form id="login-form" action="/regUsuario" method="post">
+        <div class="input-group">
+          <label>Nombre Competo:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Nombre Completo"
+          />
+        </div>
+        <div class="input-group">
+          <label>Correo electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ingrese correo"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label>Usuario:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Ingrese Usuario"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label>Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Ingrese su contraseña"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label>Confirmar Contraseña:</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirme su contraseña"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <button type="submit">Registrarse</button>
+        </div>
+        <div class="tiene_cuenta">
+          <h6>¿Ya tiene cuenta?</h6>
+          <a href="/index">Inicia Sesión</a>
+          <br />
+        </div>
+
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

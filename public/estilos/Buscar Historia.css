@@ -1,0 +1,309 @@
+/* Estilos globales */
+body {
+  font-family: "CentSchbkCyrill BT";
+  margin: 0;
+  padding: 0;
+  background-image: url("/img/Fondo\ bienvenido.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: white;
+  color: #0d54a1;
+  font-size: small;
+  padding: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-family: "Arial", sans-serif;
+  font-size: 20px;
+  margin-right: auto;
+  margin-left: 13%;
+  padding: 0px;
+}
+
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
+}
+
+.logo-text {
+  color: rgb(83, 79, 79);
+  font-family: "CentSchbkCyrill BT";
+  font-size: 19px;
+  margin-left: auto;
+  text-align: center;
+  padding: 3%;
+}
+
+/* Menú desplegable */
+/*estilo del botón del menú */
+.menu {
+  position: relative;
+  display: inline-block;
+  margin-left: 1, 2%;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.menu button {
+  background-color: white;
+  color: black;
+  padding: 15px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/*Contenedor del  menú */
+.menu-contenido {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 9px;
+}
+
+/* Intem del menú principal*/
+.items-menu {
+  position: relative;
+}
+
+/* submenú */
+.submenu-button {
+  padding: 12px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.submenu-button.active {
+  background: #0056b3; /* Cambia el color de fondo cuando está desplegado */
+  color: white; /* Cambia el color del texto */
+}
+
+/*contenedor del Submenú*/
+.submenu-contenido {
+  display: none;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+.submenu-contenido a {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+/* cambiar de color en cada item al pasar el mouse sobre el submenú */
+.submenu-contenido a:hover {
+  background-color: #ddd;
+}
+
+/*muestra el menú al hacer clic*/
+.show {
+  display: block;
+}
+
+/*cerrar sesión*/
+.cerrar_sesion {
+  display: inline;
+  background-color: #f1f1f1;
+  padding-left: 0px;
+}
+
+.cerrar_sesion a {
+  color: #0056b3;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-align: right;
+  margin-right: 13px;
+}
+
+.cerrar_sesion a:hover {
+  text-decoration: underline;
+}
+.cerrar_sesion a span {
+  margin-right: 3px;
+}
+
+/*Buscador de historia clínica*/
+.buscador {
+  display: block;
+  justify-content: flex-start; /* Alinea buscador a la izquierda */
+  align-items: flex-start; /* Alinea los buscador en la parte superior */
+  padding: 0px;
+  position: absolute; /* Posiciona el contenedor de manera absoluta */
+  gap: 10px;
+  top: 20%; /* Lo coloca en la parte superior */
+  left: 15%; /* Lo coloca en la parte izquierda */
+  margin: 10px; /* Margen para separarlo del borde */
+}
+
+.Documento {
+  display: flex;
+  position: absolute;
+  bottom: 40%;
+  font-size: 15px;
+  font-family: "Arial", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  white-space: nowrap;
+}
+.buscarHistoria {
+  padding: 6px;
+  border: 1px solid #1a1919;
+  border-radius: 5px;
+}
+
+.botonBuscar {
+  padding: 8px 10px;
+  background-color: #044181;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botonBuscar:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Efecto de ampliación */
+}
+
+.botonBuscar:active {
+  transform: scale(0.95); /* Reduce ligeramente al hacer clic */
+}
+/*Calentdario*/
+
+.calendario {
+  background: white;
+  margin-top: 25px;
+  margin-left: 73%;
+  border: rgba(9, 0, 0, 0.772) solid 1.8px;
+  padding: 0px 9px 3px 9px;
+  text-align: center;
+  font-size: 15px;
+  width: 260px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+}
+.calendario h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 23px;
+  line-height: 30px;
+  align-items: center;
+  background-color: hsl(231, 78%, 62%);
+  color: white;
+  margin: auto;
+  margin-left: -9px;
+  width: 107%;
+  border-bottom: black solid 1.8px;
+}
+.calendario h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  border-bottom: black solid 1.7px;
+  margin-top: 5%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.header button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333; /* Color del icono */
+  transition: color 0.3s ease; /* Transición suave al pasar el mouse*/
+}
+
+.header button:hover {
+  color: #007bff; /* Cambia el color al pasar el mouse */
+}
+
+ol {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0px;
+  gap: 1px;
+}
+
+.day {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.day:hover {
+  background-color: #479af3;
+}
+
+.day-name {
+  background: #eee;
+  font-weight: bold;
+  text-align: center;
+}
+
+.day.today {
+  background-color: #0c76e8; /* Amarillo para resaltar el día actual */
+  color: #fdfdfd;
+  font-weight: bold;
+  border: 2px solid #044181; /* Borde más grueso */
+}
+
+.nex-cita {
+  color: rgba(19, 18, 18, 0.787);
+  border-top: black solid 1px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial;
+  text-align: left;
+  margin-top: 3px;
+  padding-top: 4px;
+}
+
+.cancel-cita {
+  color: rgba(19, 18, 18, 0.787);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial;
+  text-align: left;
+  margin-top: 3px;
+  margin-left: 3px;
+  padding-top: 4px;
+  padding-bottom: 15px;
+}
+/* Estilos para el pie de página */
+footer {
+  background-color: #0d54a1;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: grid;
+}

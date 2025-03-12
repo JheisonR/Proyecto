@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de Sesión - PsicoGestor</title>
+    <link rel="stylesheet" href="/estilos/estilo.css" />
+  </head>
+  <body>
+    <% if(typeof mensaje != "undefined"){ %>
+    <div
+      style="
+        color: rgb(8, 17, 94);
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        position: fixed; /* Fija el mensaje en la pantalla */
+        top: 0; /* Lo coloca en la parte superior */
+        left: 50%; /* Lo mueve al centro horizontal */
+        transform: translateX(-50%); /* Ajusta el centrado */
+        background-color: #e8e9f5;
+        width: 48%; /* Ancho del mensaje */
+        padding: 10px;
+        border: 1px solid #4c56af;
+        border-radius: 5px;
+        margin-top: 30px; /* Espacio desde la parte superior */
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+      "
+    >
+      <p><%=mensaje %></p>
+    </div>
+    <% } %>
+
+    <div class="login-container">
+      <div class="login-box">
+        <img
+          src="/img/Logo psicogestor.png"
+          alt="Logo_psicogestro"
+          class="logo"
+        />
+        <h3 class="h3_psicogestor">PsicoGESTOR</h3>
+      </div>
+
+      <form action="/codLogin" method="post" id="login-form">
+        <div class="input-group">
+          <label for="username">Usuario:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="input-group">
+          <button type="submit">Ingresar</button>
+        </div>
+        <div class="forgot-password">
+          <a href="#">¿Olvidó la contraseña?</a>
+          <br />
+        </div>
+        <div class="registro">
+          <a href="/registro">Registrarse</a>
+        </div>
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

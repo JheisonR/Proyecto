@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Arial", sans-serif;
+}
+
+/* Fondo de la página */
+body {
+  background-image: url("/img/fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  image-resolution: 1366px 766px;
+}
+
+/* Contenedor principal del login */
+.login-container {
+  width: 300px;
+  backdrop-filter: blur(7px);
+  margin: 100% auto; /* Centrado horizontal y margen desde la parte superior */
+  margin-top: 99px;
+  border-radius: 0px;
+  border-color: #0d54a1;
+  border-width: 2.3px;
+  border-style: solid;
+  text-align: center; /* Para centrar los elementos dentro del contenedor */
+}
+
+/* Cuadro de login */
+.login-box {
+  background-color: #0d54a1; /* Color azul */
+  color: white; /* Texto blanco */
+  padding: 10px; /* Espacio alrededor del texto */
+  border-radius: 0px; /* Bordes redondeados */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+.logo {
+  width: 40px; /* Ajusta el tamaño del logo */
+  height: auto; /* Mantén la proporción original de la imagen */
+}
+
+.h3_psicogestor {
+  margin-right: 60px;
+  margin-left: 10px;
+}
+
+/* Estilos de los campos de entrada */
+.input-group {
+  margin-bottom: 14px;
+  text-align: justify;
+  margin-left: 30px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  color: #0a0404;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #130d8a;
+  font-size: 14px;
+}
+
+button {
+  width: 90%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  color: white;
+  background-color: #0056b3;
+}
+
+/* Enlace de olvido de contraseña */
+.forgot-password {
+  margin-top: 10px;
+}
+
+.forgot-password a {
+  font-size: 14px;
+  color: #1a33d7;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+  color: #130d8a;
+}
+
+/* Enlace de registro */
+.registro {
+  margin-top: 10px;
+}
+
+.registro a {
+  font-size: 14px;
+  color: #1a33d7;
+  text-decoration: none;
+}
+
+.registro a:hover {
+  text-decoration: underline;
+  color: #130d8a;
+}
