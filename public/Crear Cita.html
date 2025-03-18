@@ -67,12 +67,13 @@
     </header>
 
     <!-- Cuestionario para agendar cita-->
-    <div class="container">
-      <!-- Datos del Paciente -->
-      <fieldset class="cuadro-formulario">
-        <legend class="legenda"><b>Datos del Paciente</b></legend>
-        <br />
-        <form action="#" method="post">
+    <form action="#" method="post">
+      <div class="container">
+        <!-- Datos del Paciente -->
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda"><b>Datos del Paciente</b></legend>
+          <br />
+
           <div class="grid-container">
             <!-- primera coluna-->
             <div class="form-group">
@@ -111,33 +112,31 @@
             <!--segunda columna-->
 
             <div class="form-container">
-              <form action="#">
-                <div>
-                  <label><b>Sexo:</b></label>
-                </div>
-                <div class="radio-group">
-                  <label for="masculino">
-                    <input
-                      type="radio"
-                      id="masculino"
-                      name="sexo"
-                      value="masculino"
-                      required
-                    />
-                    Masculino
-                  </label>
-                  <label for="femenino">
-                    <input
-                      type="radio"
-                      id="femenino"
-                      name="sexo"
-                      value="femenino"
-                      required
-                    />
-                    Femenino
-                  </label>
-                </div>
-              </form>
+              <div>
+                <label><b>Sexo:</b></label>
+              </div>
+              <div class="radio-group">
+                <label for="masculino">
+                  <input
+                    type="radio"
+                    id="masculino"
+                    name="sexo"
+                    value="masculino"
+                    required
+                  />
+                  Masculino
+                </label>
+                <label for="femenino">
+                  <input
+                    type="radio"
+                    id="femenino"
+                    name="sexo"
+                    value="femenino"
+                    required
+                  />
+                  Femenino
+                </label>
+              </div>
             </div>
             <div class="form-group">
               <label for="tipoId"><b>Tipo de Identificación:</b></label>
@@ -200,17 +199,17 @@
               </div>
             </div>
           </div>
-        </form>
-        <br />
-      </fieldset>
-    </div>
 
-    <!-- Agendamiento de Cita -->
-    <div class="container">
-      <fieldset class="cuadro-formulario">
-        <legend class="legenda"><b>Agendamiento de Cita</b></legend>
-        <br />
-        <form>
+          <br />
+        </fieldset>
+      </div>
+
+      <!-- Agendamiento de Cita -->
+      <div class="container">
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda"><b>Agendamiento de Cita</b></legend>
+          <br />
+
           <div class="grid-container2">
             <div class="form-group">
               <label for="fechaCita"><b>Fecha de Cita:</b></label>
@@ -238,24 +237,19 @@
               ></textarea>
             </div>
           </div>
-        </form>
-        <!--<div class="buton-contenedo">
-          <button class="btn boton-guardar">
-            <span class="icon-save"></span>Guardar
-          </button>
-          <button class="btn boton-cancelar">
-            <span class="icon-circle-with-cross"></span>Cancelar
-          </button>
-        </div> -->
-        <br />
-      </fieldset>
-    </div>
+
+          <br />
+        </fieldset>
+      </div>
+    </form>
+
+    <!--botones-->
     <div class="buton-contenedor">
-      <button title="Guardar" class="btn-guardar">
+      <button type="submit" title="Guardar" class="btn-guardar">
         <i class="icon-save"></i>
       </button>
 
-      <button title="Limpiar" class="btn-limpiar">
+      <button type="reset" title="Limpiar" class="btn-limpiar">
         <i class="icon-clipboard"></i>
       </button>
     </div>
