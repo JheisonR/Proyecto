@@ -10,6 +10,31 @@
   </head>
 
   <body>
+    <% if(typeof mensaje !== "undefined" && mensaje) { %>
+    <div
+      style="
+        color: rgb(8, 17, 94);
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        position: fixed; /* Fija el mensaje en la pantalla */
+        top: 0; /* Lo coloca en la parte superior */
+        left: 50%; /* Lo mueve al centro horizontal */
+        transform: translateX(-50%); /* Ajusta el centrado */
+        background-color: #e8e9f5;
+        width: 48%; /* Ancho del mensaje */
+        padding: 10px;
+        border: 1px solid #4c56af;
+        border-radius: 5px;
+        margin-top: 30px; /* Espacio desde la parte superior */
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+      "
+    >
+      <p><%=mensaje %></p>
+    </div>
+    <% } %>
+
     <!-- Encabezado -->
     <header>
       <!-- Munú-->
@@ -19,7 +44,7 @@
           <div class="items-menu">
             <button class="submenu-button">Gestionar Citas</button>
             <div class="submenu-contenido">
-              <a href="Crear Cita.html">Crear Cita</a>
+              <a href="/crearCita">Crear Cita</a>
               <a href="Consultar Cita.html">Consultar Cita</a>
             </div>
           </div>
@@ -67,7 +92,7 @@
     </header>
 
     <!-- Cuestionario para agendar cita-->
-    <form action="#" method="post">
+    <form action="/crearCita" method="post">
       <div class="container">
         <!-- Datos del Paciente -->
         <fieldset class="cuadro-formulario">
@@ -241,18 +266,17 @@
           <br />
         </fieldset>
       </div>
+      <div class="buton-contenedor">
+        <button type="submit" title="Guardar" class="btn-guardar">
+          <i class="icon-save"></i>
+        </button>
+
+        <button type="reset" title="Limpiar" class="btn-limpiar">
+          <i class="icon-clipboard"></i>
+        </button>
+      </div>
     </form>
     <br />
-    <!--botones-->
-    <div class="buton-contenedor">
-      <button type="submit" title="Guardar" class="btn-guardar">
-        <i class="icon-save"></i>
-      </button>
-
-      <button type="reset" title="Limpiar" class="btn-limpiar">
-        <i class="icon-clipboard"></i>
-      </button>
-    </div>
 
     <!-- Pie de página -->
     <footer>Ha iniciado sesión como <span id="fecha"></span></footer>

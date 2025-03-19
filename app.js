@@ -24,11 +24,15 @@ app.use(require("./rutas/index"));
 app.use(require("./rutas/regUsuario"));
 app.use(require("./rutas/codLogin"));
 app.use(require("./rutas/Bienvenido"));
+app.use(require("./rutas/crearCita"));
 app.get("/registro", (req, res) => {
   res.render("registro");
 });
 app.get("/index", (req, res) => {
   res.render("index");
+});
+app.get("/crearCita", (req, res) => {
+  res.render("Crear Cita");
 });
 
 //configurando el puerto del servidor
