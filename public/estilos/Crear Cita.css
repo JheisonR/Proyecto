@@ -401,7 +401,7 @@ label {
   margin: 10px; /* Margen para separarlo del borde */
 }
 /* Estilo base para los botones */
-/* Botón Buscar */
+/* Botón guardar */
 .btn-guardar {
   padding: 4.2px 0px 4.2px 5.9px; /* Aumenta el padding para mejor apariencia */
   font-size: 20px; /* Tamaño de fuente ligeramente reducido */
@@ -446,6 +446,33 @@ label {
 .btn-limpiar:active,
 .btn-guardar:active {
   transform: scale(0.95); /* Reduce ligeramente al hacer clic */
+}
+
+/* Botón cerrar mensaje */
+.btn-cerrar {
+  position: relative;
+  left: 20%;
+  padding: 4.2px 4.3px 4.2px 5.9px; /* Aumenta el padding para mejor apariencia */
+  font-size: 20px; /* Tamaño de fuente ligeramente reducido */
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #f9faf900;
+}
+
+.icon-cross {
+  color: rgb(48, 44, 44);
+}
+
+.btn-cerrar:hover {
+  background-color: #e70914; /* Azul más claro */
+  transform: scale(1.05); /* Efecto de ampliación */
+}
+.icon-cross:hover {
+  color: rgb(248, 246, 246);
+  transform: scale(1.05);
 }
 /* Estilos para el pie de página */
 footer {

@@ -4,22 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="/estilos/fonts.css" />
     <link rel="stylesheet" href="/estilos/Registro.css" />
   </head>
   <body>
     <% if(typeof mensaje !== "undefined" && mensaje) { %>
     <div
+      id="mensaje"
       style="
         color: rgb(8, 17, 94);
         display: flex;
-        justify-content: center; /* Centra horizontalmente */
+        justify-content: center; /* Espacio entre el texto y el botón */
         align-items: center; /* Centra verticalmente */
         position: fixed; /* Fija el mensaje en la pantalla */
         top: 0; /* Lo coloca en la parte superior */
         left: 50%; /* Lo mueve al centro horizontal */
         transform: translateX(-50%); /* Ajusta el centrado */
         background-color: #e8e9f5;
-        width: 48%; /* Ancho del mensaje */
+        width: 35%; /* Ancho del mensaje */
         padding: 10px;
         border: 1px solid #4c56af;
         border-radius: 5px;
@@ -28,7 +30,10 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
       "
     >
-      <p><%=mensaje %></p>
+      <p style="margin: 0; text-align: center"><%= mensaje %></p>
+      <div class="btn-cerrar">
+        <span class="icon-cross" title="Cerrar" id="cerrarMensaje"></span>
+      </div>
     </div>
     <% } %>
 
@@ -105,5 +110,6 @@
         <br />
       </form>
     </div>
+    <script src="/JS/cerrarMensaje.js"></script>
   </body>
 </html>
