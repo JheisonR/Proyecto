@@ -1,0 +1,326 @@
+<!DOCTYPE >
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar paciente - PsicoGESTOR</title>
+    <link rel="stylesheet" href="/public/estilos/registro paciente.css" />
+    <link rel="stylesheet" href="/public/estilos/fonts.css" />
+  </head>
+
+  <body>
+    <!-- Encabezado -->
+    <header>
+      <!-- Munú-->
+      <div class="menu">
+        <button id="MenuButton">☰</button>
+        <div id="myMenu" class="menu-contenido">
+          <div class="items-menu">
+            <button class="submenu-button">Paciente</button>
+            <div class="submenu-contenido">
+              <a href="Crear Cita.html">Registrar Paciente</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Gestionar Citas</button>
+            <div class="submenu-contenido">
+              <a href="/crearCita">Crear Cita</a>
+              <a href="Consultar Cita.html">Consultar Cita</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Historial de Pacientes</button>
+            <div class="submenu-contenido">
+              <a href="Buscar Historia.html">Historia Clinica</a>
+              <a href="Autorizaciones.html">Autorizaciones</a>
+              <a href="Tratamientos.html">Tratamientos</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Notas Clínicas</button>
+            <div class="submenu-contenido">
+              <a href="Consultar Notas.html">Consultar Notas</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Progreso de Paciente</button>
+            <div class="submenu-contenido">
+              <a href="Buscar Paciente.html">Buscar Paciente</a>
+            </div>
+          </div>
+          <div class="cerrar_sesion">
+            <a href="Inicio.html">
+              <span class="icon-log-out"></span>Cerrar Sesión</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- titulo de bienvenido y logo de encabezado-->
+      <h1>Registro de Paciente</h1>
+      <div class="Logo-contenedor">
+        <a href="Bienvenido.html"
+          ><img
+            title="Inicio Psicogestor"
+            src="/public/img/Logo psicogestor.png"
+            alt="logo"
+            width="50"
+            style="vertical-align: middle"
+        /></a>
+        <span class="logo-text"><b>PsicoGESTOR</b></span>
+      </div>
+    </header>
+
+    <!-- Cuestionario para registrar paciente-->
+    <form action="#" method="post">
+      <div class="container">
+        <!-- Datos del Paciente -->
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda"><b>Información Personal</b></legend>
+          <br />
+
+          <div class="grid-container">
+            <!-- primera columna-->
+            <div class="form-group">
+              <label for="nombre"><b>Nombre:</b></label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Nombre"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="primerApellido"><b>Primer Apellido:</b></label>
+              <input
+                type="text"
+                id="primerApellido"
+                name="primerApellido"
+                placeholder="Primer Apellido"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="segundoApellido"><b>Segundo Apellido:</b></label>
+              <input
+                type="text"
+                id="segundoApellido"
+                name="segundoApellido"
+                placeholder="Segundo Apellido"
+                required
+              />
+            </div>
+
+            <!--segunda columna-->
+
+            <div class="form-container">
+              <div>
+                <label><b>Sexo:</b></label>
+              </div>
+              <div class="radio-group">
+                <label for="masculino">
+                  <input
+                    type="radio"
+                    id="masculino"
+                    name="sexo"
+                    value="masculino"
+                    required
+                  />
+                  Masculino
+                </label>
+                <label for="femenino">
+                  <input
+                    type="radio"
+                    id="femenino"
+                    name="sexo"
+                    value="femenino"
+                    required
+                  />
+                  Femenino
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="tipoId"><b>Tipo de Identificación:</b></label>
+              <div class="icon-seleccion">
+                <select id="tipoId" name="tipoId" required>
+                  <option value="seleccione">Seleccione</option>
+                  <option value="cc">Cédula de Ciudadanía</option>
+                  <option value="ti">Tarjeta de Identidad</option>
+                  <option value="ce">Cédula de Extranjería</option>
+                  <option value="pasaporte">Pasaporte</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="numeroId"><b>Número de Documento:</b></label>
+              <input
+                type="text"
+                id="numeroId"
+                name="numeroId"
+                placeholder="Número de Documento"
+                required
+              />
+            </div>
+            <!--tercera columna-->
+            <div class="form-group">
+              <label for="fechaNacimiento"><b>Fecha de Nacimiento:</b></label>
+              <div class="icon-calendario">
+                <input
+                  type="date"
+                  id="fechaNacimiento"
+                  name="fechaNacimiento"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lugarNacimiento"><b>Lugar de Nacimiento:</b></label>
+              <input
+                type="text"
+                id="lugarNacimiento"
+                name="lugarNacimiento"
+                placeholder="Lugar de nacimiento"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="estadoCivil"><b>Estado Civil:</b></label>
+              <div class="icon-seleccion">
+                <select id="estadoCivil" name="estadoCivil" required>
+                  <option value="seleccione">Seleccione</option>
+                  <option value="soltero">Soltero</option>
+                  <option value="casado">Casado</option>
+                  <option value="ulibre">Unión Libre</option>
+                  <option value="divorciado">Divorciado</option>
+                  <option value="viudo">Viudo</option>
+                </select>
+              </div>
+            </div>
+
+            <!--cuarta columna-->
+            <div class="form-group">
+              <label for="edad"><b>Edad:</b></label>
+              <input type="tex" id="edad" name="edad" required />
+            </div>
+          </div>
+          <br />
+        </fieldset>
+      </div>
+
+      <!-- Datos de contacto -->
+      <div class="container">
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda"><b>Datos de Contacto</b></legend>
+          <br />
+          <div class="grid-container">
+            <!-- primera columna-->
+            <div class="form-group">
+              <label for="telefono"><b>Teléfono:</b></label>
+              <input
+                type="text"
+                id="telefono"
+                name="telefono"
+                placeholder="Número telefónico"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email"><b>Correo Electrónico:</b></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite e-mail"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="direccion"><b>Dirección de Residencia:</b></label>
+              <input
+                type="text"
+                id="direccion"
+                name="direccion"
+                placeholder="Digite Dirección"
+                required
+              />
+            </div>
+
+            <!--segunda columna-->
+
+            <div class="form-group">
+              <label for="ocupacion"><b>Ocupación:</b></label>
+              <input
+                type="text"
+                id="ocupacion"
+                name="ocupacion"
+                placeholder="Ocupación"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="perContacto"
+                ><b>Contacto en Caso de Emergencia:</b></label
+              >
+              <input
+                type="text"
+                id="perContacto"
+                name="perContacto"
+                placeholder="Nombre de contacto"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="numeroCont"><b>Teléfono de Emergencia:</b></label>
+              <input
+                type="text"
+                id="numeroCont"
+                name="numeroCont"
+                placeholder="Teléfono de Emergencia"
+                required
+              />
+            </div>
+          </div>
+          <br />
+        </fieldset>
+      </div>
+
+      <div class="buton-contenedor">
+        <button type="submit" title="Guardar" class="btn-guardar">
+          <i class="icon-save"></i>
+        </button>
+
+        <button type="reset" title="Limpiar" class="btn-limpiar">
+          <i class="icon-clipboard"></i>
+        </button>
+      </div>
+    </form>
+    <br />
+
+    <!-- Pie de página -->
+    <footer>Ha iniciado sesión como <span id="fecha"></span></footer>
+
+    <script>
+      //obtener y mostrar la fecha en el pie de página
+      const fechaActual = new Date();
+      const opcionesFecha = { year: "numeric", month: "long", day: "numeric" };
+      document.getElementById("fecha").textContent =
+        fechaActual.toLocaleDateString("es-ES", opcionesFecha);
+    </script>
+
+    <script src="/public/JS/menú-y-Submenú.js"></script>
+    <script src="/public/JS/cerrarMensaje.js"></script>
+    <script src="/public/JS/registro paciente.js"></script>
+  </body>
+</html>
