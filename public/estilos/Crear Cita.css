@@ -183,7 +183,7 @@ header h1 {
 
 .grid-container2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Tres columnas de igual tamaño */
+  grid-template-columns: repeat(2, 1fr); /* dos columnas de igual tamaño */
   grid-gap: 10px; /* Espaciado entre las columnas */
   margin-left: 130px;
   margin-right: 120px;

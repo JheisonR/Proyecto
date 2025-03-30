@@ -19,7 +19,7 @@
           <div class="items-menu">
             <button class="submenu-button">Paciente</button>
             <div class="submenu-contenido">
-              <a href="Crear Cita.html">Registrar Paciente</a>
+              <a href="Registro Paciente.html">Registrar Paciente</a>
             </div>
           </div>
           <div class="items-menu">
@@ -82,7 +82,7 @@
 
           <div class="grid-container">
             <!-- primera columna-->
-            <div class="form-group">
+            <div>
               <label for="nombre"><b>Nombre:</b></label>
               <input
                 type="text"
@@ -93,7 +93,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="primerApellido"><b>Primer Apellido:</b></label>
               <input
                 type="text"
@@ -104,7 +104,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="segundoApellido"><b>Segundo Apellido:</b></label>
               <input
                 type="text"
@@ -117,7 +117,7 @@
 
             <!--segunda columna-->
 
-            <div class="form-container">
+            <div>
               <div>
                 <label><b>Sexo:</b></label>
               </div>
@@ -144,7 +144,8 @@
                 </label>
               </div>
             </div>
-            <div class="form-group">
+
+            <div>
               <label for="tipoId"><b>Tipo de Identificación:</b></label>
               <div class="icon-seleccion">
                 <select id="tipoId" name="tipoId" required>
@@ -157,7 +158,7 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="numeroId"><b>Número de Documento:</b></label>
               <input
                 type="text"
@@ -168,7 +169,7 @@
               />
             </div>
             <!--tercera columna-->
-            <div class="form-group">
+            <div>
               <label for="fechaNacimiento"><b>Fecha de Nacimiento:</b></label>
               <div class="icon-calendario">
                 <input
@@ -180,7 +181,7 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="lugarNacimiento"><b>Lugar de Nacimiento:</b></label>
               <input
                 type="text"
@@ -191,7 +192,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="estadoCivil"><b>Estado Civil:</b></label>
               <div class="icon-seleccion">
                 <select id="estadoCivil" name="estadoCivil" required>
@@ -206,7 +207,7 @@
             </div>
 
             <!--cuarta columna-->
-            <div class="form-group">
+            <div>
               <label for="edad"><b>Edad:</b></label>
               <input type="tex" id="edad" name="edad" required />
             </div>
@@ -222,7 +223,7 @@
           <br />
           <div class="grid-container">
             <!-- primera columna-->
-            <div class="form-group">
+            <div>
               <label for="telefono"><b>Teléfono:</b></label>
               <input
                 type="text"
@@ -233,7 +234,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="email"><b>Correo Electrónico:</b></label>
               <input
                 type="email"
@@ -244,7 +245,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="direccion"><b>Dirección de Residencia:</b></label>
               <input
                 type="text"
@@ -257,7 +258,7 @@
 
             <!--segunda columna-->
 
-            <div class="form-group">
+            <div>
               <label for="ocupacion"><b>Ocupación:</b></label>
               <input
                 type="text"
@@ -268,7 +269,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="perContacto"
                 ><b>Contacto en Caso de Emergencia:</b></label
               >
@@ -281,7 +282,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="numeroCont"><b>Teléfono de Emergencia:</b></label>
               <input
                 type="text"
@@ -296,6 +297,445 @@
         </fieldset>
       </div>
 
+      <!-- Información médica y psicológica-->
+      <div class="container">
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda">
+            <b>Información Médica y Psicológica</b>
+          </legend>
+          <br />
+          <div class="grid-container1">
+            <!-- primera columna-->
+            <div>
+              <label
+                ><b
+                  >¿Ha recibido atención
+                  <pre></pre>
+                  psicológica previa?:</b
+                ></label
+              >
+              <br />
+              <div class="radio-group1">
+                <label for="infoMedica">
+                  <input
+                    type="radio"
+                    id="yes"
+                    name="infoMedica"
+                    value="yes"
+                    required
+                  />Sí
+                </label>
+                <label for="infoMedica">
+                  <input
+                    type="radio"
+                    id="not"
+                    name="infoMedica"
+                    value="not"
+                    required
+                  />No
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <label><b>Diagnosticos Previos:</b></label>
+                <textarea
+                  id="diagnosticoPrevio"
+                  name="diagnosticoPrevio"
+                  rows="4"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Escriba los diagnosticos o 'No aplica'..."
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <label for="eps"><b>EPS:</b></label>
+              <input
+                type="text"
+                id="eps"
+                name="eps"
+                placeholder="Escriba su EPS"
+                required
+              />
+            </div>
+
+            <div>
+              <div>
+                <label><b>Medicación Actual:</b></label>
+                <textarea
+                  id="medicActual"
+                  name="medicActual"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Escriba su medicación..."
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <!--segunda columna-->
+
+            <div id="detalle-atencion" class="oculto">
+              <div>
+                <label for="detalle-atencion"
+                  ><b>¿Con quién y por qué motivo?:</b></label
+                >
+                <textarea
+                  id="detalle"
+                  name="detalle"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Digíte el motivo"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <label for="alergias"><b>Alergias:</b></label>
+                <textarea
+                  id="alergias"
+                  name="alergias"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Indique las alergias"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <label for="motivo-consulta"><b>Motivo de Consulta:</b></label>
+                <textarea
+                  id="motivo-consulta"
+                  name="motivo-consulta"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Indique el motivo..."
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <p>
+                <b
+                  >Tiene o ha tenido alguna de estas enfermedades. Por favor
+                  marque las que aplique:</b
+                >
+              </p>
+            </div>
+
+            <!--tercera columna-->
+
+            <div class="patologias">
+              <input type="checkbox" id="anemia" /><label for="anemia"
+                ><b>Anemia</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="asma" /><label for="asma"
+                ><b>Asma</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="artritis" /><label for="artritis"
+                ><b>Artritis</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="cancer" /><label for="cancer"
+                ><b>Cáncer</b></label
+              >
+            </div>
+
+            <!--cuarta columna-->
+
+            <div class="patologias">
+              <input type="checkbox" id="gota" /><label for="gota"
+                ><b>Gota</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="diabetes" /><label for="diabetes"
+                ><b>Diabetes</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="trastorno_emocional" /><label
+                for="trastorno_emocional"
+                ><b>Trastorno Emocional</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="trastornos_epilepticos" /><label
+                for="trastornos_epilepticos"
+                ><b>Trastornos Epilépticos</b></label
+              >
+            </div>
+
+            <!--quinta columna-->
+            <div class="patologias">
+              <input type="checkbox" id="desmayo" /><label for="desmayo"
+                ><b>Desmayo</b>
+              </label>
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="calculos" /><label for="calculos"
+                ><b>Cálculos en los Riñones</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="enfermedad_corazon" /><label
+                for="enfermedad_corazon"
+                ><b>Enfermedad del Corazón</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="fiebre_amarilla" /><label
+                for="fiebre_amarilla"
+                ><b>Fiebre amarilla</b>
+              </label>
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="hipertensión" /><label
+                for="hipertensión"
+                ><b>Hipertensión</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="problemas_digestivos" /><label
+                for="problemas_digestivos"
+                ><b>Problemas Digestivos</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="colitis_ulcerativa" /><label
+                for="colitis_ulcerativa"
+                ><b>Colitis Ulcerativa</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="ulcera" /><label for="ulcera"
+                ><b>Úlcera</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="hepatitis" /><label for="hepatitis"
+                ><b>Hepatitis</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="apnea_nocturna" /><label
+                for="apnea_nocturna"
+                ><b>Apnea nocturna</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="problemas_tiroides" /><label
+                for="problemas_tiroides"
+                ><b>Problemas de tiroides</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="tuberculosis" /><label
+                for="tuberculosis"
+                ><b>Tuberculosis</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="problemas_neurologicos" /><label
+                for="problemas_neurologicos"
+                ><b>Problemas Neurológicos</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="problemas_sangrado" /><label
+                for="problemas_sangrado"
+                ><b>Problemas de sangrado</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="problemas_pulmonares" /><label
+                for="problemas_pulmonares"
+                ><b>Problemas pulmonares</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="apendicitis" /><label for="apendicitis"
+                ><b>Apendicitis</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input type="checkbox" id="otro" /><label for="otro"
+                ><b>Otro</b></label
+              >
+            </div>
+          </div>
+          <br />
+        </fieldset>
+      </div>
+
+      <!-- Antecedentes personales y familiares -->
+      <div class="container">
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda">
+            <b>Antecedentes Personales y Familiares</b>
+          </legend>
+          <br />
+          <div class="grid-container">
+            <!-- primera columna-->
+            <div>
+              <label
+                ><b
+                  >¿Antecedentes familiares de
+                  <pre></pre>
+                  enfermedades mentales?:</b
+                ></label
+              >
+              <br />
+              <div class="radio-group2">
+                <label for="antecFamiliares">
+                  <input
+                    type="radio"
+                    id="yes"
+                    name="antecFamiliares"
+                    value="yes"
+                    required
+                  />Sí
+                </label>
+                <label for="antecFamiliares">
+                  <input
+                    type="radio"
+                    id="not"
+                    name="antecFamiliares"
+                    value="not"
+                    required
+                  />No
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label
+                ><b
+                  >¿Ha tenido pensamientos
+                  <pre></pre>
+                  suicidas o autolesivos?:</b
+                ></label
+              >
+              <br />
+              <div class="radio-group2">
+                <label for="pensaSuicidas">
+                  <input
+                    type="radio"
+                    id="yes"
+                    name="pensaSuicidas"
+                    value="yes"
+                    required
+                  />Sí
+                </label>
+                <label for="pensaSuicidas">
+                  <input
+                    type="radio"
+                    id="not"
+                    name="pensaSuicidas"
+                    value="not"
+                    required
+                  />No
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="consumoSustancias"
+                ><b
+                  >Consume alguna sustancias (tabaco, alcohol, estupefacientes,
+                  otros):</b
+                ></label
+              >
+              <input
+                type="text"
+                id="consumoSustancias"
+                name="consumoSustancias"
+                required
+              />
+            </div>
+
+            <!--segunda columna-->
+            <div id="detalle-enfermedades" class="oculto">
+              <div>
+                <label for="detalle-enfermedades"><b>¿Cuáles?:</b></label>
+                <textarea
+                  id="detalle-enfermedades"
+                  name="detalle-enfermedades"
+                  cols="50"
+                  maxlength="500"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div id="detalle-tratamiento" class="oculto">
+              <div>
+                <label for="detalle-tratamiento"
+                  ><b>¿Ha recibido apoyo o tratamiento?:</b></label
+                >
+                <textarea
+                  id="detalle-tratamiento"
+                  name="detalle-tratamiento"
+                  cols="50"
+                  maxlength="500"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <label for="calidadSueno"
+                ><b>Calidad del sueño (Buena/Regular/Mala):</b></label
+              >
+              <input
+                type="text"
+                id="calidadSueno"
+                name="calidadSueno"
+                required
+              />
+            </div>
+          </div>
+          <br />
+        </fieldset>
+      </div>
+
+      <!--Botones-->
       <div class="buton-contenedor">
         <button type="submit" title="Guardar" class="btn-guardar">
           <i class="icon-save"></i>

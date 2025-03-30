@@ -181,6 +181,13 @@ header h1 {
   margin-right: 120px;
 }
 
+.grid-container1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* cuatro columnas de igual tamaño */
+  grid-gap: 3px; /* Espaciado entre las columnas */
+  margin-left: 80px;
+  margin-right: 12px;
+}
 input,
 select {
   font-family: "Bookman Old Style";
@@ -195,17 +202,17 @@ select {
 }
 textarea {
   font-family: "Bookman Old Style";
-  margin-bottom: 1px;
   border-radius: 10px;
-  height: 150px;
-  width: 400px;
+  height: 49px;
+  width: 250px;
   border: 1px solid #052661;
   box-sizing: border-box;
   background-color: rgb(255, 254, 254);
   resize: none;
 }
 
-label {
+label,
+p {
   font-family: "Bookman Old ";
   font-size: 15px;
   color: #080f4d;
@@ -223,6 +230,57 @@ label {
 }
 
 .radio-group label {
+  font-family: "Bookman Old ";
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.radio-group1 {
+  width: 10px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 60%;
+  margin-top: -58px;
+}
+
+.radio-group1 label {
+  font-family: "Bookman Old ";
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.patologias label {
+  display: flex;
+  position: relative;
+  margin-right: 30%;
+  margin-top: 9px;
+  font-size: 15px;
+}
+
+.patologias input {
+  display: flex;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+input[type="checkbox"] {
+  accent-color: #0588f3; /* Cambia el color del checkbox */
+}
+
+.radio-group2 {
+  width: 10px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 60%;
+  margin-top: -50px;
+}
+
+.radio-group2 label {
   font-family: "Bookman Old ";
   font-size: 15px;
   display: flex;
