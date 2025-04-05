@@ -25,6 +25,7 @@ app.use(require("./rutas/regUsuario"));
 app.use(require("./rutas/codLogin"));
 app.use(require("./rutas/Bienvenido"));
 app.use(require("./rutas/crearCita"));
+app.use(require("./rutas/regPaciente"));
 app.get("/registro", (req, res) => {
   res.render("registro");
 });
@@ -33,6 +34,9 @@ app.get("/index", (req, res) => {
 });
 app.get("/crearCita", (req, res) => {
   res.render("Crear Cita");
+});
+app.get("/regPaciente", (req, res) => {
+  res.render("Registro Paciente");
 });
 
 //configurando el puerto del servidor

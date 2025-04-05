@@ -9,7 +9,7 @@ body {
   font-family: "CentSchbkCyrill BT";
   margin: 0;
   padding: 0;
-  background-image: url("/public/img/fondo\ crear\ cita.jpg");
+  background-image: url("/img/fondo\ crear\ cita.jpg");
   background-size: cover;
   background-position: center;
   width: 100vw;
@@ -203,6 +203,7 @@ select {
 textarea {
   font-family: "Bookman Old Style";
   border-radius: 10px;
+  padding: 5px 5px 5px 5px;
   height: 49px;
   width: 250px;
   border: 1px solid #052661;
@@ -286,10 +287,24 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
 }
-/*icono de fechas*/
-.icon-calendario {
-  position: relative;
-  display: inline-block;
+
+.otro {
+  width: 10px;
+  padding: 6px 0px 0px 0px;
+  display: flex;
+}
+
+.otro input {
+  font-family: "Bookman Old Style ";
+  font-size: 15px;
+  display: block;
+  position: absolute;
+  border: 1px solid #052661;
+  box-sizing: border-box;
+  background-color: rgb(255, 254, 254);
+  margin-left: 3%;
+  width: 200px;
+  border-radius: 5px;
 }
 
 .icon-calendario input[type="date"] {
@@ -311,48 +326,13 @@ input[type="checkbox"] {
 .icon-calendario::after {
   content: "";
   position: absolute;
-  top: 48%;
-  right: 3px;
+  top: 45.8%;
+  right: 64.3%;
   transform: translateY(-50%);
-  background-image: url("/public/img/calendary.png"); /* URL del icono personalizado */
+  background-image: url("/img/calendary.png"); /* URL del icono personalizado */
   background-size: 23px 23px;
-  width: 23px;
-  height: 23px;
-  pointer-events: none; /* No permite interactuar con el ícono */
-}
-
-/*icono hora de cita*/
-.icon-hora {
-  position: relative;
-  display: inline-block;
-}
-
-.icon-hora input[type="time"] {
-  font-family: "Bookman Old Style";
-  width: 250px;
-  margin-bottom: 1px;
-  border-radius: 10px;
-  padding: 3px;
-  border: 1px solid #052661;
-  box-sizing: border-box;
-  background-color: rgb(255, 254, 254);
-  text-align: center;
-}
-
-.icon-hora input[type="time"]::-webkit-calendar-picker-indicator {
-  opacity: 0; /* Ocultar icono*/
-}
-
-.icon-hora::after {
-  content: "";
-  position: absolute;
-  top: 48%;
-  right: 3px;
-  transform: translateY(-50%);
-  background-image: url("/public/img/reloj1.png"); /* URL del icono personalizado */
-  background-size: 23px 23px;
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
   pointer-events: none; /* No permite interactuar con el ícono */
 }
 
@@ -386,59 +366,13 @@ input[type="checkbox"] {
   border: 1.5px solid #052661;
   border-radius: 7px;
   transform: translateY(-50%);
-  background-image: url("/public/img/seleccione.png"); /* URL del icono personalizado */
+  background-image: url("/img/seleccione.png"); /* URL del icono personalizado */
   background-size: 22px 22px;
   width: 22px;
   height: 22px;
   pointer-events: none; /* No permite interactuar con el ícono */
 }
-/* Contenedor de los botones
-  .buton-contenedor {
-    justify-content: flex-end;
-    display: flex;
-    padding: 5px;
-    gap: 10px; /* Espacio entre botones */
-
-/* Estilo base para los botones */
-/*.btn {
-    padding: 8px 9px;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-right: 22px;
-  }*/
-
-/* Botón Guardar */
-/*.boton-guardar {
-    background-color: #052661;
-    color: white;
-    text-align-last: center;
-  }*/
-
-/*.boton-guardar:hover {
-    background-color: #0d54a1; /* azul más claro */
-/*transform: scale(1.05); /* Efecto de ampliación */
-/*}*/
-
-/* Botón Cancelar */
-/*.boton-cancelar {
-    background-color: #dc3545;
-    color: white;
-  }*/
-
-/*.boton-cancelar:hover {
-    background-color: #c82333; /* Rojo más oscuro */
-/*transform: scale(1.05); /* Efecto de ampliación */
-/*}
-  
-  /* Efecto de clic */
-/*.btn:active {
-    transform: scale(0.95); /* Reduce ligeramente al hacer clic */
-
-/* Contenedor de los botones */
+/* Botones */
 .buton-contenedor {
   display: flex;
   justify-content: flex-start; /* Alinea los botones a la izquierda */
