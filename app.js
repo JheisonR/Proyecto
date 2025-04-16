@@ -2,6 +2,7 @@
 const express = require("express");
 const session = require("express-session");
 const app = express();
+const link = require("./config/link");
 
 //configuraciones
 app.set("view engine", "ejs"); //páginas dinámicas
@@ -33,10 +34,16 @@ app.get("/index", (req, res) => {
   res.render("index");
 });
 app.get("/crearCita", (req, res) => {
-  res.render("Crear Cita");
+  res.render("Crear Cita", {
+    datos: req.session,
+    link,
+  });
 });
 app.get("/regPaciente", (req, res) => {
-  res.render("Registro Paciente");
+  res.render("Registro Paciente", {
+    datos: req.session,
+    link,
+  });
 });
 
 //configurando el puerto del servidor

@@ -189,6 +189,30 @@ header h1 {
   margin-right: 120px;
 }
 
+.form-cedula input {
+  font-family: "Bookman Old Style";
+  width: 250px;
+  margin-bottom: 1px;
+  border-radius: 10px;
+  padding: 3px;
+  border: 2px solid #052661;
+  box-sizing: border-box;
+  background-color: rgb(147, 217, 250);
+  text-align: justify;
+}
+
+.form-tipDocumento select {
+  font-family: "Bookman Old Style";
+  width: 250px;
+  margin-bottom: 1px;
+  border-radius: 10px;
+  padding: 3px;
+  border: 2px solid #052661;
+  box-sizing: border-box;
+  background-color: rgb(147, 217, 250);
+  text-align: justify;
+}
+
 input,
 select {
   font-family: "Bookman Old Style";
@@ -203,6 +227,7 @@ select {
 }
 textarea {
   font-family: "Bookman Old Style";
+  padding: 5px 5px 5px 5px;
   margin-bottom: 1px;
   border-radius: 10px;
   height: 150px;
@@ -401,6 +426,26 @@ label {
   margin: 10px; /* Margen para separarlo del borde */
 }
 /* Estilo base para los botones */
+/* Botón Buscar */
+.btn-buscar {
+  padding: 3px 3px; /* Aumenta el padding para mejor apariencia */
+  font-size: 20px; /* Tamaño de fuente ligeramente reducido */
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #1f5fce;
+}
+
+.icon-magnifying-glass {
+  color: white;
+}
+
+.btn-buscar:hover {
+  background-color: #0a4d96; /* Azul más claro */
+  transform: scale(1.05); /* Efecto de ampliación */
+}
 /* Botón guardar */
 .btn-guardar {
   padding: 4.2px 0px 4.2px 5.9px; /* Aumenta el padding para mejor apariencia */
@@ -444,7 +489,8 @@ label {
 
 /* Efecto de clic */
 .btn-limpiar:active,
-.btn-guardar:active {
+.btn-guardar:active,
+.btn-buscar:active {
   transform: scale(0.95); /* Reduce ligeramente al hacer clic */
 }
 
@@ -479,6 +525,8 @@ footer {
   margin-top: 50px;
   background-color: #0d54a1;
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
   text-align: center;
   padding: 20px;
   position: flex;

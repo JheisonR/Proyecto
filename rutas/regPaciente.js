@@ -82,18 +82,30 @@ router.post("/regPaciente", async function (req, res) {
         if (err) {
           console.error("Error al registrar paciente:", err);
           let mensaje = "⚠️ Error al registrar paciente";
-          return res.render("Registro Paciente", { mensaje, link });
+          return res.render("Registro Paciente", {
+            mensaje,
+            link,
+            datos: req.session,
+          });
         } else {
           console.log("Registro exitoso");
           let mensaje = "✅ Paciente creado con éxito";
-          return res.render("Registro Paciente", { mensaje, link });
+          return res.render("Registro Paciente", {
+            mensaje,
+            link,
+            datos: req.session,
+          });
         }
       }
     );
   } catch (error) {
     console.error("Error al registrar", error);
     let mensaje = "⚠️ Error en el servidor";
-    return res.render("Registro Paciente", { mensaje, link });
+    return res.render("Registro Paciente", {
+      mensaje,
+      link,
+      datos: req.session,
+    });
   }
 });
 
