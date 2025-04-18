@@ -3,6 +3,12 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear Cita - PsicoGESTOR</title>
     <link rel="stylesheet" href="estilos/Crear Cita.css" />
@@ -79,7 +85,7 @@
             </div>
           </div>
           <div class="cerrar_sesion">
-            <a href="Inicio.html">
+            <a href="#" id="logoutBtn">
               <span class="icon-log-out"></span>Cerrar Sesión</a
             >
           </div>
@@ -282,16 +288,28 @@
         <button
           class="btn-buscar"
           type="button"
+          id="btnBuscar"
           onclick="buscarPaciente()"
           title="Buscar"
         >
           <i class="icon-magnifying-glass"></i>
         </button>
-        <button type="submit" title="Guardar" class="btn-guardar">
+        <button
+          type="submit"
+          title="Guardar"
+          class="btn-guardar"
+          id="btnGuardar"
+          style="display: none"
+        >
           <i class="icon-save"></i>
         </button>
 
-        <button type="reset" title="Limpiar" class="btn-limpiar">
+        <button
+          type="reset"
+          onclick="limpiarFormulario() "
+          title="Limpiar"
+          class="btn-limpiar"
+        >
           <i class="icon-clipboard"></i>
         </button>
       </div>
@@ -300,7 +318,7 @@
 
     <!-- Pie de página -->
     <footer>
-      Ha iniciado sesión como <%=datos.useusu.toUpperCase()%>
+      Ha iniciado sesión como <%=datos.useusu.toUpperCase() %>
       <span id="fecha"></span>
     </footer>
 
@@ -312,8 +330,18 @@
         fechaActual.toLocaleDateString("es-ES", opcionesFecha);
     </script>
 
+    <script>
+      // Evita que el botón atrás muestre páginas cacheadas
+      window.onload = function () {
+        if (!window.performance || performance.navigation.type === 2) {
+          location.reload(true);
+        }
+      };
+    </script>
+
     <script src="/JS/menú-y-Submenú.js"></script>
     <script src="/JS/cerrarMensaje.js"></script>
     <script src="/JS/citas.js"></script>
+    <script src="/JS/cerrarSesion.js"></script>
   </body>
 </html>

@@ -37,21 +37,41 @@ router.post("/crearCita", async function (req, res) {
     conexion.query(insertar, [idp, fec, hrc, mtc], function (err) {
       if (err) {
         console.error("Error al registrar cita:", err);
-        let mensaje = "⚠️ Error al registrar cita";
-        return res.render("Crear Cita", { mensaje, link, datos: req.session });
+        // Guardar mensaje de error en la sesión para mostrarlo después del redirect
+        req.session.mensaje = {
+          texto: "⚠️ Error al registrar cita",
+          tipo: "error",
+        };
+        return res.redirect("/crearCita");
       } else {
         console.log("Registro exitoso");
-        let mensaje = "✅ Cita creada con éxito";
-        return res.render("Crear Cita", { mensaje, link, datos: req.session });
+        // Guardar mensaje de éxito en la sesión
+        req.session.mensaje = {
+          texto: "✅ Cita creada con éxito",
+          tipo: "exito",
+        };
+        return res.redirect("/crearCita");
       }
     });
   } catch (error) {
     console.error("Error al registrar", error);
-    let mensaje = "⚠️ Error en el servidor";
-    return res.render("Crear Cita", { mensaje, link, datos: req.session });
+    req.session.mensaje = { texto: "⚠️ Error en el servidor", tipo: "error" };
+    return res.redirect("/crearCita");
   }
+});
 
-  req.session.useusu = user.usuario;
+// Ruta GET para mostrar el formulario (asegúrate de tener esta)
+router.get("/crearCita", function (req, res) {
+  // Obtener y eliminar el mensaje de la sesión para mostrarlo solo una vez
+  const mensaje = req.session.mensaje;
+  delete req.session.mensaje;
+
+  res.render("Crear Cita", {
+    mensaje: mensaje ? mensaje.texto : null,
+    tipoMensaje: mensaje ? mensaje.tipo : null,
+    link,
+    datos: req.session,
+  });
 });
 
 module.exports = router;

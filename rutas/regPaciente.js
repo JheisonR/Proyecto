@@ -4,6 +4,9 @@ const conexion = require("../config/conexion");
 const link = require("../config/link");
 
 router.post("/regPaciente", async function (req, res) {
+  if (!req.session.login) {
+    return res.redirect("/index");
+  }
   let nom = req.body.nombre;
   let pap = req.body.primerApellido;
   let sap = req.body.segundoApellido;
@@ -80,33 +83,43 @@ router.post("/regPaciente", async function (req, res) {
       ],
       function (err) {
         if (err) {
-          console.error("Error al registrar paciente:", err);
-          let mensaje = "⚠️ Error al registrar paciente";
-          return res.render("Registro Paciente", {
-            mensaje,
-            link,
-            datos: req.session,
-          });
+          console.error("Error al registrar cita:", err);
+          // Guardar mensaje de error en la sesión para mostrarlo después del redirect
+          req.session.mensaje = {
+            texto: "⚠️ Error al registrar paciente",
+            tipo: "error",
+          };
+          return res.redirect("/regPaciente");
         } else {
           console.log("Registro exitoso");
-          let mensaje = "✅ Paciente creado con éxito";
-          return res.render("Registro Paciente", {
-            mensaje,
-            link,
-            datos: req.session,
-          });
+          // Guardar mensaje de éxito en la sesión
+          req.session.mensaje = {
+            texto: "✅ Paciente creado con éxito",
+            tipo: "exito",
+          };
+          return res.redirect("/regPaciente");
         }
       }
     );
   } catch (error) {
     console.error("Error al registrar", error);
-    let mensaje = "⚠️ Error en el servidor";
-    return res.render("Registro Paciente", {
-      mensaje,
-      link,
-      datos: req.session,
-    });
+    req.session.mensaje = { texto: "⚠️ Error en el servidor", tipo: "error" };
+    return res.redirect("/regPaciente");
   }
+});
+
+// Ruta GET para mostrar el formulario (asegúrate de tener esta)
+router.get("/regPaciente", function (req, res) {
+  // Obtener y eliminar el mensaje de la sesión para mostrarlo solo una vez
+  const mensaje = req.session.mensaje;
+  delete req.session.mensaje;
+
+  res.render("Registro Paciente", {
+    mensaje: mensaje ? mensaje.texto : null,
+    tipoMensaje: mensaje ? mensaje.tipo : null,
+    link,
+    datos: req.session,
+  });
 });
 
 module.exports = router;

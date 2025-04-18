@@ -18,6 +18,13 @@ app.use(
   })
 );
 //fin de manejo de sesión
+//Proteger rutas
+app.use((req, res, next) => {
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+  next();
+});
 
 //rutas dinamicas y estaticas::::::::::::::::::::::
 app.use(express.static("public"));
@@ -27,20 +34,38 @@ app.use(require("./rutas/codLogin"));
 app.use(require("./rutas/Bienvenido"));
 app.use(require("./rutas/crearCita"));
 app.use(require("./rutas/regPaciente"));
+
 app.get("/registro", (req, res) => {
   res.render("registro");
 });
 app.get("/index", (req, res) => {
   res.render("index");
 });
-app.get("/crearCita", (req, res) => {
-  res.render("Crear Cita", {
+app.get("/Bienvenido", (req, res) => {
+  if (!req.session.login) {
+    return res.redirect("/index");
+  }
+  res.render("Binvenido", {
     datos: req.session,
     link,
   });
 });
+
 app.get("/regPaciente", (req, res) => {
+  if (!req.session.login) {
+    return res.redirect("/index");
+  }
   res.render("Registro Paciente", {
+    datos: req.session,
+    link,
+  });
+});
+
+app.get("/crearCita", (req, res) => {
+  if (!req.session.login) {
+    return res.redirect("/index");
+  }
+  res.render("Crear Cita", {
     datos: req.session,
     link,
   });

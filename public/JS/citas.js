@@ -1,6 +1,8 @@
 function buscarPaciente() {
   const tipoId = document.getElementById("tipoId").value;
   const numeroId = document.getElementById("numeroId").value;
+  const btnBuscar = document.getElementById("btnBuscar");
+  const btnGuardar = document.getElementById("btnGuardar");
 
   fetch("/buscarPaciente", {
     method: "POST",
@@ -34,8 +36,11 @@ function buscarPaciente() {
         document.getElementById("femenino").checked = true;
       }
       document.getElementById("id_paciente").value = paciente.Id_Paciente;
-      // Habilitar campos de agendamiento
+
+      // Habilitar campos de agendamiento y cambiar botones
       document.getElementById("campos-cita").style.display = "grid";
+      btnBuscar.style.display = "none"; // Ocultar buscar
+      btnGuardar.style.display = "block"; // Mostrar guardar
     })
     .catch((err) => {
       console.error("Error al buscar paciente:", err);
@@ -43,49 +48,10 @@ function buscarPaciente() {
     });
 }
 
-/*document
-  .getElementById("buscarPaciente")
-  .addEventListener("click", async () => {
-    const tipo_id = document.getElementById("tipo_id").value;
-    const documento = document.getElementById("documento").value;
-
-    if (!tipo_id || !documento) {
-      alert("Debe seleccionar el tipo de identificación y digitar el número.");
-      return;
-    }
-
-    const response = await fetch(`/buscarPaciente/${tipo_id}/${documento}`);
-    const data = await response.json();
-
-    if (data && data.Id_Paciente) {
-      document.getElementById("nombrePaciente").textContent = data.nombre;
-      document.getElementById("idPaciente").value = data.Id_Paciente;
-      document.getElementById("datosPaciente").style.display = "block";
-    } else {
-      alert("Paciente no encontrado.");
-    }
-  });
-
-document.getElementById("formCita").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const cita = {
-    idPaciente: document.getElementById("idPaciente").value,
-    fecha_cita: document.getElementById("fecha_cita").value,
-    hora_cita: document.getElementById("hora_cita").value,
-    motivo_cita: document.getElementById("motivo_cita").value,
-  };
-
-  const response = await fetch("/crearCita", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(cita),
-  });
-
-  const result = await response.json();
-  alert(result.message);
-  if (result.success) {
-    document.getElementById("formCita").reset();
-    document.getElementById("datosPaciente").style.display = "none";
-  }
-});*/
+// Función para resetear el formulario (opcional)
+function limpiarFormulario() {
+  document.getElementById("btnBuscar").style.display = "block";
+  document.getElementById("btnGuardar").style.display = "none";
+  document.getElementById("campos-cita").style.display = "none";
+  // Resto de tu lógica de limpieza...
+}

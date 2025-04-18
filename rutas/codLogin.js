@@ -42,9 +42,27 @@ router.post("/codLogin", function (req, res) {
         req.session.useusu = user.usuario;
         req.session.conusu = user.contrasena;
         console.log("Sesión iniciada:", req.session); // Comprobar los datos que inician la sesión
-        res.render("Bienvenido", { datos: req.session, link });
+        res.redirect("/Bienvenido");
       }
     }
+  });
+});
+
+//Ruta para el cierre de sesión
+router.post("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Error al cerrar sesión:", err);
+      return res.status(500).send("Error al cerrar sesión");
+    }
+
+    // Headers para evitar caché
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+
+    // Redirigir al login
+    res.redirect("/index");
   });
 });
 
