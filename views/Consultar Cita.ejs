@@ -1,0 +1,184 @@
+<!DOCTYPE >
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultar Cita - PsicoGESTOR</title>
+    <link rel="stylesheet" href="/estilos/Consultar Cita.css" />
+    <link rel="stylesheet" href="/estilos/fonts.css" />
+  </head>
+
+  <body>
+    <!-- Encabezado -->
+    <header>
+      <!-- Munú-->
+      <div class="menu">
+        <button id="MenuButton">☰</button>
+        <div id="myMenu" class="menu-contenido">
+          <div class="items-menu">
+            <button class="submenu-button">Paciente</button>
+            <div class="submenu-contenido">
+              <a href="/regPaciente">Registrar Paciente</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Gestionar Citas</button>
+            <div class="submenu-contenido">
+              <a href="/crearCita">Crear Cita</a>
+              <a href="/buscar_cita">Consultar Cita</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Historial de Pacientes</button>
+            <div class="submenu-contenido">
+              <a href="Buscar Historia.html">Historia Clinica</a>
+              <a href="Autorizaciones.html">Autorizaciones</a>
+              <a href="Tratamientos.html">Tratamientos</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Notas Clínicas</button>
+            <div class="submenu-contenido">
+              <a href="Consultar Notas.html">Consultar Notas</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Progreso de Paciente</button>
+            <div class="submenu-contenido">
+              <a href="Buscar Paciente.html">Buscar Paciente</a>
+            </div>
+          </div>
+          <div class="cerrar_sesion">
+            <a href="Inicio.html">
+              <span class="icon-log-out"></span>Cerrar Sesión</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- titulo de bienvenido y logo de encabezado-->
+      <h1>Consultar Cita</h1>
+      <div class="Logo-contenedor">
+        <a href="Bienvenido.html"
+          ><img
+            title="Inicio Psicogestor"
+            src="/img/Logo psicogestor.png"
+            alt="logo"
+            width="50"
+            style="vertical-align: middle"
+        /></a>
+        <span class="logo-text"><b>PsicoGESTOR</b></span>
+      </div>
+    </header>
+
+    <!--buscador de cédula para consultar cita por paciente-->
+    <div class="buscador">
+      <h5 class="Documento">Ingrese número de documento</h5>
+      <input
+        class="buscarHistoria"
+        type="text"
+        id="buscarDocumento"
+        placeholder="Buscar"
+      />
+      <button
+        class="botonBuscar"
+        id="botonBuscar"
+        onclick="consultarPaciente()"
+      >
+        <i class="icon-magnifying-glass"></i>Buscar
+      </button>
+    </div>
+    <!-- Datos del Paciente -->
+    <section id="resultados" class="oculto">
+      <div class="infoPaciente">
+        <div class="detallePaciente">
+          <h3 id="nombrePaciente"></h3>
+          <p id="cedulaPaciente"></p>
+          <p id="telPaciente"></p>
+        </div>
+      </div>
+
+      <div class="cuadroCitas">
+        <h3>Citas Agendadas:</h3>
+        <table class="citasAgendadas">
+          <thead>
+            <tr>
+              <th style="width: 400px; height: auto">Motivo de la cita</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-citas">
+            <!-- Las filas serán insertadas aquí dinámicamente -->
+          </tbody>
+        </table>
+        <br />
+      </div>
+    </section>
+
+    <!-- Modal de Reagendación -->
+    <div id="reprogramar-modal" class="modal">
+      <div class="modal-contenido">
+        <span class="close-modal">&times;</span>
+        <h2>Reagendar Cita</h2>
+
+        <form id="reprogramar-form">
+          <input type="hidden" id="cita-id" />
+
+          <div class="form-group">
+            <label for="new-date">Nueva Fecha:</label>
+            <div class="icon-calendario">
+              <input type="date" id="new-date" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="new-time">Nueva Hora:</label>
+            <div class="icon-hora">
+              <input type="time" id="new-time" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Motivo:</label>
+            <textarea id="notes" rows="3"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Confirmar Cambios</button>
+            <button type="button" class="btn-secondary close-modal">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br /><br />
+    <br /><br />
+    <br /><br />
+
+    <!-- Pie de página -->
+    <footer>
+      <% if (typeof datos !== 'undefined' && datos && datos.useusu) { %> Ha
+      iniciado sesión como <%= datos.useusu.toUpperCase() %> <% } else { %>
+      <script>
+        window.location.href = "/";
+      </script>
+      <% } %>
+      <span id="fecha"></span>
+    </footer>
+
+    <script>
+      //obtener y mostrar la fecha en el pie de página
+      const fechaActual = new Date();
+      const opcionesFecha = { year: "numeric", month: "long", day: "numeric" };
+      document.getElementById("fecha").textContent =
+        fechaActual.toLocaleDateString("es-ES", opcionesFecha);
+    </script>
+
+    <script src="/JS/menú-y-Submenú.js"></script>
+    <script src="/JS/consultar_cita.js"></script>
+  </body>
+</html>

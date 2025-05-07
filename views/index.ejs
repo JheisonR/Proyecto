@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="/estilos/estilo.css" />
   </head>
   <body>
+    <video autoplay muted loop id="intro_video">
+      <source src="/video/intro_login.mp4" type="video/mp4" />
+      Tu navegador no soporta la reproducción de video.
+    </video>
+
     <% if(typeof mensaje !== "undefined" && mensaje) { %>
     <div
       id="mensaje"
@@ -60,11 +65,11 @@
           <button type="submit">Ingresar</button>
         </div>
         <div class="forgot-password">
-          <a href="#">¿Olvidó la contraseña?</a>
+          <a href="#"><b>¿Olvidó la contraseña?</b></a>
           <br />
         </div>
         <div class="registro">
-          <a href="/registro">Registrarse</a>
+          <a href="/registro"><b> Registrarse</b></a>
         </div>
         <br />
       </form>

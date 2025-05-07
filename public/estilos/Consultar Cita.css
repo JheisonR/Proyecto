@@ -1,19 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* Estilos globales */
 body {
   font-family: "CentSchbkCyrill BT";
   margin: 0;
   padding: 0;
-  background-image: url("/img/fondo\ crear\ cita.jpg");
+  background-image: url("/img/Fondo\ bienvenido.jpg");
   background-size: cover;
   background-position: center;
   width: 100vw;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 /* Estilos para el encabezado */
@@ -154,90 +149,289 @@ header h1 {
 .cerrar_sesion a span {
   margin-right: 3px;
 }
+
+/*Buscador de paciente por cédula*/
+.buscador {
+  display: block;
+  justify-content: flex-start; /* Alinea buscador a la izquierda */
+  align-items: flex-start; /* Alinea los buscador en la parte superior */
+  padding: 0px;
+  position: absolute; /* Posiciona el contenedor de manera absoluta */
+  gap: 10px;
+  top: 15%; /* Lo coloca en la parte superior */
+  left: 16%; /* Lo coloca en la parte izquierda */
+  margin: 10px; /* Margen para separarlo del borde */
+}
+
+.Documento {
+  display: flex;
+  position: absolute;
+  bottom: 40%;
+  font-size: 15px;
+  font-family: "Arial", sans-serif;
+  font-weight: 600px;
+  font-style: italic;
+  white-space: nowrap;
+}
+.buscarHistoria {
+  padding: 6px;
+  border: 1px solid #1a1919;
+  border-radius: 5px;
+}
+
+.botonBuscar {
+  padding: 6px 7px 6px 6px; /* Aumenta el padding para mejor apariencia */
+  font-size: 13px; /* Tamaño de fuente ligeramente reducido */
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #044181;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.botonBuscar:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Efecto de ampliación */
+}
+
+.botonBuscar:active {
+  transform: scale(0.95); /* Reduce ligeramente al hacer clic */
+}
+
+.icon-magnifying-glass {
+  float: left;
+  color: white;
+  position: relative;
+  margin-right: 3px;
+  font-size: 15px;
+}
 /* Formulario */
+.oculto {
+  display: none;
+}
 
-.container {
-  width: 85%;
+.infoPaciente {
+  width: 70%;
+  border-radius: 10px;
   margin: auto;
-  margin-top: 30px;
-}
-
-.cuadro-formulario {
-  border-radius: 15px;
-  width: 100%;
-  height: 35%;
+  margin-top: 90px;
   background-color: white;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #021830;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+  box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
-.legenda {
+.detallePaciente h3 {
+  color: #02274e;
+  font-family: "Franklin Gothic Medium";
+  font-style: italic;
+  font-size: 20px;
+}
+
+.detallePaciente p {
+  color: #070707;
+  font-family: "Franklin Gothic Book";
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/*Cuadro de citas agendadas*/
+.cuadroCitas {
+  width: 70%;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 40px;
+  background-color: white;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #021830;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+  box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.3);
+}
+.cuadroCitas h3 {
+  font-family: "Arial", sans-serif;
   font-size: 20px;
   color: #0d54a1;
+  font-weight: bold;
+  text-align: left;
+  padding: 0px 5px 5px 10px;
+}
+
+.cuadroCitas table {
+  width: 93%;
+  position: relative;
+  margin: auto;
   text-align: center;
+  border-spacing: 0;
+  border-left: 1px solid;
+  border-color: #1a1919;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
-  grid-gap: 10px; /* Espaciado entre las columnas */
-  margin-left: 130px;
-  margin-right: 120px;
+.cuadroCitas th {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  background-color: #0f3864;
+  color: white;
+
+  height: 40px;
 }
 
-.grid-container2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Tres columnas de igual tamaño */
-  grid-gap: 10px; /* Espaciado entre las columnas */
-  margin-left: 130px;
-  margin-right: 120px;
+.cuadroCitas td {
+  background-color: #ece8fa;
+  font-size: 14px;
+  font-family: Arial, "sans-serif";
+  font-weight: 550;
+  text-align: center;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+
+  border-color: #1a1919;
 }
 
-input,
-select {
-  font-family: "Bookman Old Style";
-  width: 250px;
-  margin-bottom: 1px;
-  border-radius: 10px;
-  padding: 3px;
-  border: 1px solid #052661;
-  box-sizing: border-box;
-  background-color: rgb(255, 254, 254);
+td.motivocita {
   text-align: justify;
-}
-textarea {
-  font-family: "Bookman Old Style";
-  margin-bottom: 1px;
-  border-radius: 10px;
-  height: 150px;
-  width: 400px;
-  border: 1px solid #052661;
-  box-sizing: border-box;
-  background-color: rgb(255, 254, 254);
-  resize: none;
+  padding: 14px 5px 3px 5px;
+  height: auto;
+  max-width: 400px; /* Ajusta este valor según tu tabla */
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 4;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-label {
-  font-family: "Bookman Old ";
-  font-size: 15px;
-  color: #080f4d;
-  margin-bottom: 5px;
-  display: block;
+.motivocita.expandido {
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
-.radio-group {
-  width: 70px;
-  padding: 2px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 50px;
-  margin-top: -24px;
+td.acciones {
+  padding: 5px 5px 5px 5px;
 }
 
-.radio-group label {
-  font-family: "Bookman Old ";
-  font-size: 15px;
-  display: flex;
+/* Estilo base para los botones */
+/* Botón modificar */
+.modificar {
+  padding: 4px 4px 4px 5px; /* Aumenta el padding para mejor apariencia */
+  font-size: 13px; /* Tamaño de fuente ligeramente reducido */
+  font-weight: bold;
+  border: 1px solid;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: rgba(100, 160, 238, 0.788);
+}
+
+.modificar:hover {
+  background-color: #2373cf; /* Azul más claro */
+  transform: scale(1.02); /* Efecto de ampliación */
+}
+/* Botón Cancelar*/
+.cancelar {
+  padding: 4px 4px 4px 5px; /* Aumenta el padding para mejor apariencia */
+  font-size: 13px; /* Tamaño de fuente ligeramente reducido */
+  font-weight: bold;
+  border: 1px solid;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: rgb(224, 224, 224);
+}
+
+.cancelar:hover {
+  background-color: rgb(182, 182, 182); /* Azul más claro */
+  transform: scale(1.02); /* Efecto de ampliación */
+}
+
+/* Efecto de clic */
+.modificar:active,
+.cancelar:active {
+  transform: scale(0.95); /* Reduce ligeramente al hacer clic */
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
+
+.modal-contenido {
+  background: white;
+  padding: 25px;
+  border-radius: 9px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #343a40;
+}
+
+.close-modal:hover,
+.btn-primary:hover {
+  transform: scale(1.04);
+}
+
+.close-modal:active,
+.btn-primary:active {
+  transform: scale(1);
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+  color: #4a6fa5;
+  font-size: 23px;
+  font-family: "Arial", sans-serif;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: Arial, "sans-serif";
+}
+
 /*icono de fechas*/
 .icon-calendario {
   position: relative;
@@ -245,15 +439,14 @@ label {
 }
 
 .icon-calendario input[type="date"] {
-  font-family: "Bookman Old Style";
-  width: 250px;
-  margin-bottom: 1px;
-  border-radius: 10px;
-  padding: 3px;
-  border: 1px solid #052661;
+  font-size: 1rem;
+  font-family: Arial, "sans-serif";
+  width: 325%;
+  height: 7%;
+  padding: 10px;
+  border: 1px solid #ddd;
   box-sizing: border-box;
   background-color: rgb(255, 254, 254);
-  text-align: center;
 }
 
 .icon-calendario input[type="date"]::-webkit-calendar-picker-indicator {
@@ -264,9 +457,9 @@ label {
   content: "";
   position: absolute;
   top: 48%;
-  right: 3px;
+  left: 470px;
   transform: translateY(-50%);
-  background-image: url("/img/calendary.png"); /* URL del icono personalizado */
+  background-image: url("/public/img/calendary.png"); /* URL del icono personalizado */
   background-size: 23px 23px;
   width: 23px;
   height: 23px;
@@ -280,15 +473,14 @@ label {
 }
 
 .icon-hora input[type="time"] {
-  font-family: "Bookman Old Style";
-  width: 250px;
-  margin-bottom: 1px;
-  border-radius: 10px;
-  padding: 3px;
-  border: 1px solid #052661;
+  font-size: 1rem;
+  font-family: Arial, "sans-serif";
+  width: 360%;
+  height: 7%;
+  padding: 10px;
+  border: 1px solid #ddd;
   box-sizing: border-box;
   background-color: rgb(255, 254, 254);
-  text-align: center;
 }
 
 .icon-hora input[type="time"]::-webkit-calendar-picker-indicator {
@@ -299,134 +491,55 @@ label {
   content: "";
   position: absolute;
   top: 48%;
-  right: 3px;
+  left: 470px;
   transform: translateY(-50%);
-  background-image: url("/img/reloj1.png"); /* URL del icono personalizado */
+  background-image: url("/public/img/reloj1.png"); /* URL del icono personalizado */
   background-size: 23px 23px;
   width: 23px;
   height: 23px;
   pointer-events: none; /* No permite interactuar con el ícono */
 }
 
-/*icono selección*/
-.icon-seleccion {
-  position: relative;
-  display: inline-block;
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
 }
 
-.icon-seleccion input[type="select"] {
-  font-family: "Bookman Old Style";
-  width: 250px;
-  margin-bottom: 1px;
-  border-radius: 10px;
-  padding: 3px;
-  border: 1px solid #052661;
-  box-sizing: border-box;
-  background-color: rgb(255, 254, 254);
-  text-align: center;
-}
-
-.icon-seleccion input[type="select"]::-webkit-calendar-picker-indicator {
-  opacity: 0; /* Ocultar icono*/
-}
-
-.icon-seleccion::after {
-  content: "";
-  position: absolute;
-  top: 49.4%;
-  right: 0px;
-  border: 1.5px solid #052661;
-  border-radius: 7px;
-  transform: translateY(-50%);
-  background-image: url("/img/seleccione.png"); /* URL del icono personalizado */
-  background-size: 22px 22px;
-  width: 22px;
-  height: 22px;
-  pointer-events: none; /* No permite interactuar con el ícono */
-}
-/* Contenedor de los botones */
-.buton-contenedor {
+.form-actions {
   display: flex;
-  justify-content: flex-start; /* Alinea los botones a la izquierda */
-  align-items: flex-start; /* Alinea los botones en la parte superior */
-  padding: 0px;
-  gap: 10px; /* Espacio entre botones */
-  position: absolute; /* Posiciona el contenedor de manera absoluta */
-  top: 10.1%; /* Lo coloca en la parte superior */
-  left: 9%; /* Lo coloca en la parte izquierda */
-  margin: 10px; /* Margen para separarlo del borde */
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-/* Estilo base para los botones */
-/* Botón Buscar */
-.btn-buscar {
-  padding: 3px 3px; /* Aumenta el padding para mejor apariencia */
-  font-size: 20px; /* Tamaño de fuente ligeramente reducido */
-  font-weight: bold;
+.btn-primary {
+  background-color: #4a6fa5;
+  color: white;
+  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  background-color: #1f5fce;
 }
 
-.icon-magnifying-glass {
+.btn-secondary {
+  background-color: #6c757d;
   color: white;
-}
-
-.btn-buscar:hover {
-  background-color: #0a4d96; /* Azul más claro */
-  transform: scale(1.05); /* Efecto de ampliación */
-}
-/* Botón Limpiar*/
-.btn-limpiar {
-  padding: 4.5px 4.5px; /* Aumenta el padding para mejor apariencia */
-  font-size: 17px; /* Tamaño de fuente ligeramente reducido */
-  font-weight: bold;
+  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  background-color: rgb(165, 163, 163);
-}
-
-.icon-clipboard {
-  color: white;
-}
-
-.btn-limpiar:hover {
-  background-color: grey; /* Azul más claro */
-  transform: scale(1.05); /* Efecto de ampliación */
-}
-
-/* Efecto de clic */
-.btn-limpiar:active,
-.btn-buscar:active {
-  transform: scale(0.95); /* Reduce ligeramente al hacer clic */
 }
 
 /* Estilos para el pie de página */
 footer {
-  margin-top: 50px;
   background-color: #0d54a1;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   text-align: center;
   padding: 20px;
-  position: flex;
+  position: fixed;
   width: 100%;
   bottom: 0;
   display: grid;
-}
-
-/*icono Boton*/
-.icon-save {
-  margin-right: 9px;
-  font-size: 18px;
-}
-
-.icon-circle-with-cross {
-  margin-right: 9px;
-  font-size: 18px;
 }

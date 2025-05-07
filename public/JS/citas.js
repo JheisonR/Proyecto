@@ -53,5 +53,4 @@ function limpiarFormulario() {
   document.getElementById("btnBuscar").style.display = "block";
   document.getElementById("btnGuardar").style.display = "none";
   document.getElementById("campos-cita").style.display = "none";
-  // Resto de tu lógica de limpieza...
 }

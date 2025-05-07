@@ -16,6 +16,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   image-resolution: 1366px 766px;
+  overflow: hidden;
 }
 
 /* Contenedor principal del login */
@@ -24,7 +25,7 @@ body {
   width: 380px;
   backdrop-filter: blur(7px);
   margin: 100% auto; /* Centrado horizontal y margen desde la parte superior */
-  margin-top: 26px;
+  margin-top: 4%;
   border-radius: 0px;
   border-color: #0d54a1;
   border-width: 2.3px;

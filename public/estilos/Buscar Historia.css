@@ -3,7 +3,7 @@ body {
   font-family: "CentSchbkCyrill BT";
   margin: 0;
   padding: 0;
-  background-image: url("/img/Fondo\ bienvenido.jpg");
+  background-image: url("/public/img/Fondo\ bienvenido.jpg");
   background-size: cover;
   background-position: center;
 }

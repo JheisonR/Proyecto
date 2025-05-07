@@ -61,7 +61,7 @@
             <button class="submenu-button">Gestionar Citas</button>
             <div class="submenu-contenido">
               <a href="/crearCita">Crear Cita</a>
-              <a href="Consultar Cita.html">Consultar Cita</a>
+              <a href="/buscar_cita">Consultar Cita</a>
             </div>
           </div>
           <div class="items-menu">
@@ -318,7 +318,12 @@
 
     <!-- Pie de página -->
     <footer>
-      Ha iniciado sesión como <%=datos.useusu.toUpperCase() %>
+      <% if (typeof datos !== 'undefined' && datos && datos.useusu) { %> Ha
+      iniciado sesión como <%= datos.useusu.toUpperCase() %> <% } else { %>
+      <script>
+        window.location.href = "/";
+      </script>
+      <% } %>
       <span id="fecha"></span>
     </footer>
 

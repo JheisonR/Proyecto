@@ -12,23 +12,41 @@ html {
 
 /* Fondo de la página */
 body {
-  background-image: url("/img/fondo.jpg");
-  background-repeat: no-repeat;
+  /*background-image: url("/img/fondo.jpg");*/
+  background-repeat: repeat;
   background-size: cover;
+  overflow: hidden;
   image-resolution: 1366px 766px;
+}
+
+/* Video de fondo */
+#intro_video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Puedes probar también con 'fill' o 'contain' */
+  z-index: -1;
+  opacity: 0.9; /* opcional: lo hace más suave si está detrás del login */
 }
 
 /* Contenedor principal del login */
 .login-container {
-  width: 300px;
-  backdrop-filter: blur(7px);
-  margin: 100% auto; /* Centrado horizontal y margen desde la parte superior */
-  margin-top: 99px;
+  position: relative;
+  box-shadow: 0px 3px 3px 0px rgba(15, 15, 15, 0.3);
+  width: 320px;
+  height: 380px;
+  /*background-color: rgba(250, 250, 250, 0.493);*/
+  backdrop-filter: blur(10px);
+  top: 20%;
+  left: 71%;
   border-radius: 0px;
   border-color: #0d54a1;
   border-width: 2.3px;
   border-style: solid;
   text-align: center; /* Para centrar los elementos dentro del contenedor */
+  z-index: 1;
 }
 
 /* Cuadro de login */
@@ -55,16 +73,18 @@ body {
 
 /* Estilos de los campos de entrada */
 .input-group {
-  margin-bottom: 14px;
+  margin-bottom: 25px;
   text-align: justify;
   margin-left: 30px;
 }
 
 label {
-  font-size: 14px;
-  margin-bottom: 5px;
+  font-size: 15px;
+  font-family: "Franklin Gothic Medium";
+  font-weight: 550;
+  margin-bottom: 10px;
   display: block;
-  color: #0a0404;
+  color: #ffffff;
 }
 
 input[type="text"],
@@ -85,20 +105,26 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
   color: white;
   background-color: #0056b3;
+  transform: scale(1.04);
+}
+
+button:active {
+  transform: scale(1);
 }
 
 /* Enlace de olvido de contraseña */
 .forgot-password {
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
 .forgot-password a {
-  font-size: 14px;
+  font-size: 15px;
   color: #1a33d7;
   text-decoration: none;
 }
@@ -110,11 +136,11 @@ button:hover {
 
 /* Enlace de registro */
 .registro {
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
 .registro a {
-  font-size: 14px;
+  font-size: 15px;
   color: #1a33d7;
   text-decoration: none;
 }

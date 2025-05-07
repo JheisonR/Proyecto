@@ -513,7 +513,7 @@ label {
 }
 
 .btn-cerrar:hover {
-  background-color: #e70914; /* Azul más claro */
+  background-color: #e70914;
   transform: scale(1.05); /* Efecto de ampliación */
 }
 .icon-cross:hover {
