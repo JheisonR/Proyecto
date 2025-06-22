@@ -35,6 +35,7 @@ app.use(require("./rutas/Bienvenido"));
 app.use(require("./rutas/crearCita"));
 app.use(require("./rutas/regPaciente"));
 app.use(require("./rutas/buscar_cita"));
+app.use(require("./rutas/historiaClinica"));
 
 app.get("/registro", (req, res) => {
   res.render("registro");
@@ -77,6 +78,16 @@ app.get("/buscar_cita", (req, res) => {
     return res.redirect("/index");
   }
   res.render("Consultar Cita", {
+    datos: req.session,
+    link,
+  });
+});
+
+app.get("/historiaClinica", (req, res) => {
+  if (!req.session.login) {
+    return res.redirect("/index");
+  }
+  res.render("historiaClinica", {
     datos: req.session,
     link,
   });

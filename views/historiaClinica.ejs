@@ -1,0 +1,1194 @@
+<!DOCTYPE >
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historia Clínica - PsicoGESTOR</title>
+    <link rel="stylesheet" href="/estilos/historiaClinica.css" />
+    <link rel="stylesheet" href="/estilos/fonts.css" />
+  </head>
+
+  <body>
+    <% if(typeof mensaje !== "undefined" && mensaje) { %>
+    <div
+      id="mensaje"
+      style="
+        color: rgb(8, 17, 94);
+        display: flex;
+        justify-content: center; /* Espacio entre el texto y el botón */
+        align-items: center; /* Centra verticalmente */
+        position: fixed; /* Fija el mensaje en la pantalla */
+        top: 0; /* Lo coloca en la parte superior */
+        left: 50%; /* Lo mueve al centro horizontal */
+        transform: translateX(-50%); /* Ajusta el centrado */
+        background-color: #e8e9f5;
+        width: 30%; /* Ancho del mensaje */
+        padding: 10px;
+        border: 1px solid #4c56af;
+        border-radius: 5px;
+        margin-top: 30px; /* Espacio desde la parte superior */
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+      "
+    >
+      <p style="margin: 0; text-align: center"><%= mensaje %></p>
+      <div class="btn-cerrar">
+        <span class="icon-cross" title="Cerrar" id="cerrarMensaje"></span>
+      </div>
+    </div>
+    <% } %>
+
+    <!-- Encabezado -->
+    <header>
+      <!-- Munú-->
+      <div class="menu">
+        <button id="MenuButton">☰</button>
+        <div id="myMenu" class="menu-contenido">
+          <div class="items-menu">
+            <button class="submenu-button">Paciente</button>
+            <div class="submenu-contenido">
+              <a href="/regPaciente">Registrar Paciente</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Gestionar Citas</button>
+            <div class="submenu-contenido">
+              <a href="/crearCita">Crear Cita</a>
+              <a href="/buscar_cita">Consultar Cita</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Historial de Pacientes</button>
+            <div class="submenu-contenido">
+              <a href="/historiaClinica">Historia Clinica</a>
+              <a href="Autorizaciones.html">Autorizaciones</a>
+              <a href="Tratamientos.html">Tratamientos</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Notas Clínicas</button>
+            <div class="submenu-contenido">
+              <a href="Consultar Notas.html">Consultar Notas</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Evolución Clínica</button>
+            <div class="submenu-contenido">
+              <a href="Buscar Paciente.html">Evolución de pacientes</a>
+            </div>
+          </div>
+          <div class="cerrar_sesion">
+            <a href="#" id="logoutBtn">
+              <span class="icon-log-out"></span>Cerrar Sesión</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- titulo de bienvenido y logo de encabezado-->
+      <h1>Historia Clínica</h1>
+      <div class="Logo-contenedor">
+        <a href="Bienvenido"
+          ><img
+            title="Inicio Psicogestor"
+            src="/img/Logo psicogestor.png"
+            alt="logo"
+            width="50"
+            style="
+              vertical-align: middle;
+              right: 17.5%;
+              display: flex;
+              position: absolute;
+              padding: auto;
+              top: 11px;
+            "
+        /></a>
+        <span class="logo-text"><b>PsicoGESTOR</b></span>
+      </div>
+    </header>
+
+    <!-- Cuestionario para registrar historia-->
+    <form id="formHistoria" action="/historiaClinica" method="post">
+      <input type="hidden" id="id_paciente" name="id_paciente" value="" />
+      <div class="container">
+        <!-- Datos del Paciente -->
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda"><b>Información Personal</b></legend>
+          <br />
+
+          <div class="grid-container">
+            <!-- primera columna-->
+            <div>
+              <label for="nombre"><b>Nombre:</b></label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Nombre"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="primerApellido"><b>Primer Apellido:</b></label>
+              <input
+                type="text"
+                id="primerApellido"
+                name="primerApellido"
+                placeholder="Primer Apellido"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="segundoApellido"><b>Segundo Apellido:</b></label>
+              <input
+                type="text"
+                id="segundoApellido"
+                name="segundoApellido"
+                placeholder="Segundo Apellido"
+                disabled
+              />
+            </div>
+
+            <!--segunda columna-->
+
+            <div>
+              <div>
+                <label><b>Sexo:</b></label>
+              </div>
+              <div class="radio-group">
+                <label for="masculino">
+                  <input
+                    type="radio"
+                    id="masculino"
+                    name="sexo"
+                    value="masculino"
+                    disabled
+                  />
+                  Masculino
+                </label>
+                <label for="femenino">
+                  <input
+                    type="radio"
+                    id="femenino"
+                    name="sexo"
+                    value="femenino"
+                    disabled
+                  />
+                  Femenino
+                </label>
+              </div>
+            </div>
+
+            <div class="form-tipDocumento">
+              <label for="tipoId"><b>Tipo de Identificación:</b></label>
+              <div class="icon-seleccion">
+                <select id="tipoId" name="tipoId">
+                  <option value="seleccione">Seleccione</option>
+                  <option value="cc">Cédula de Ciudadanía</option>
+                  <option value="ti">Tarjeta de Identidad</option>
+                  <option value="ce">Cédula de Extranjería</option>
+                  <option value="pasaporte">Pasaporte</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-cedula">
+              <label for="numeroId"><b>Número de Documento:</b></label>
+              <input
+                type="text"
+                id="numeroId"
+                name="numeroId"
+                placeholder="Ingrese Número de Documento"
+                pattern="[0-9]+"
+              />
+            </div>
+            <!--tercera columna-->
+            <div>
+              <label for="fechaNacimiento"><b>Fecha de Nacimiento:</b></label>
+              <div class="icon-calendario">
+                <input
+                  type="date"
+                  id="fechaNacimiento"
+                  name="fechaNacimiento"
+                  disabled
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="lugarNacimiento"><b>Lugar de Nacimiento:</b></label>
+              <input
+                type="text"
+                id="lugarNacimiento"
+                name="lugarNacimiento"
+                placeholder="Lugar de nacimiento"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="estadoCivil"><b>Estado Civil:</b></label>
+              <div class="icon-seleccion">
+                <select id="estadoCivil" name="estadoCivil" disabled>
+                  <option value="seleccione">Seleccione</option>
+                  <option value="soltero">Soltero</option>
+                  <option value="casado">Casado</option>
+                  <option value="ulibre">Unión Libre</option>
+                  <option value="divorciado">Divorciado</option>
+                  <option value="viudo">Viudo</option>
+                </select>
+              </div>
+            </div>
+
+            <!--cuarta columna-->
+            <div>
+              <label for="edad"><b>Edad:</b></label>
+              <input type="tex" id="edad" name="edad" disabled />
+            </div>
+          </div>
+          <br />
+        </fieldset>
+      </div>
+
+      <!-- Datos de contacto -->
+      <div class="container">
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda"><b>Datos de Contacto</b></legend>
+          <br />
+          <div class="grid-container">
+            <!-- primera columna-->
+            <div>
+              <label for="telefono"><b>Teléfono:</b></label>
+              <input
+                type="text"
+                id="telefono"
+                name="telefono"
+                placeholder="Número telefónico"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="email"><b>Correo Electrónico:</b></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite e-mail"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="direccion"><b>Dirección de Residencia:</b></label>
+              <input
+                type="text"
+                id="direccion"
+                name="direccion"
+                placeholder="Digite Dirección"
+                disabled
+              />
+            </div>
+
+            <!--segunda columna-->
+
+            <div>
+              <label for="ocupacion"><b>Ocupación:</b></label>
+              <input
+                type="text"
+                id="ocupacion"
+                name="ocupacion"
+                placeholder="Ocupación"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="perContacto"
+                ><b>Contacto en Caso de Emergencia:</b></label
+              >
+              <input
+                type="text"
+                id="perContacto"
+                name="perContacto"
+                placeholder="Nombre de contacto"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="numeroCont"><b>Teléfono de Emergencia:</b></label>
+              <input
+                type="text"
+                id="numeroCont"
+                name="numeroCont"
+                placeholder="Teléfono de Emergencia"
+                disabled
+              />
+            </div>
+          </div>
+          <br />
+        </fieldset>
+      </div>
+
+      <!-- Información médica y psicológica-->
+      <div class="container">
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda">
+            <b>Información Médica y Psicológica</b>
+          </legend>
+          <br />
+          <div class="grid-container1">
+            <!-- primera columna-->
+            <div>
+              <label
+                ><b
+                  >¿Ha recibido atención
+                  <pre></pre>
+                  psicológica previa?:</b
+                ></label
+              >
+              <br />
+              <div class="radio-group1">
+                <label for="infoMedica">
+                  <input
+                    type="radio"
+                    id="yes"
+                    name="infoMedica"
+                    value="Si"
+                    disabled
+                  />Sí
+                </label>
+                <label for="infoMedica">
+                  <input
+                    type="radio"
+                    id="not"
+                    name="infoMedica"
+                    value="No"
+                    disabled
+                  />No
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <label for="diagnosticoPrevio"
+                  ><b>Diagnosticos Previos:</b></label
+                >
+                <textarea
+                  id="diagnosticoPrevio"
+                  name="diagnosticoPrevio"
+                  rows="4"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Escriba los diagnosticos o 'No aplica'..."
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <label for="eps"><b>EPS:</b></label>
+              <input
+                type="text"
+                id="eps"
+                name="eps"
+                placeholder="Escriba su EPS"
+                disabled
+              />
+            </div>
+
+            <div>
+              <div>
+                <label for="medicActual"><b>Medicación Actual:</b></label>
+                <textarea
+                  id="medicActual"
+                  name="medicActual"
+                  rows="4"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Escriba su medicación..."
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <!--segunda columna-->
+
+            <div id="pregunta_extra" style="display: none">
+              <div>
+                <label for="respuesta_extra"
+                  ><b>¿Con quién y por qué motivo?:</b></label
+                >
+                <textarea
+                  id="respuesta_extra"
+                  name="porqueMotivo"
+                  rows="4"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Digíte el motivo"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <label for="alergias"><b>Alergias:</b></label>
+                <textarea
+                  id="alergias"
+                  name="alergias"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Indique las alergias"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <label for="motivoConsulta"><b>Motivo de Consulta:</b></label>
+                <textarea
+                  id="motivoConsulta"
+                  name="motivoConsulta"
+                  cols="50"
+                  maxlength="500"
+                  placeholder="Indique el motivo..."
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <p>
+                <b
+                  >Tiene o ha tenido alguna de estas enfermedades. Por favor
+                  marque las que aplique:</b
+                >
+              </p>
+            </div>
+            <br />
+            <!--tercera columna-->
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="anemia"
+                name="sintomas"
+                value="anemia"
+                disabled
+              /><label for="anemia"><b>Anemia</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="asma"
+                name="sintomas"
+                value="asma"
+                disabled
+              /><label for="asma"><b>Asma</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="artritis"
+                name="sintomas"
+                value="artritis"
+                disabled
+              /><label for="artritis"><b>Artritis</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="cancer"
+                name="sintomas"
+                value="cancer"
+                disabled
+              /><label for="cancer"><b>Cáncer</b></label>
+            </div>
+
+            <!--cuarta columna-->
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="gota"
+                name="sintomas"
+                value="gota"
+                disabled
+              /><label for="gota"><b>Gota</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="diabetes"
+                name="sintomas"
+                value="diabetes"
+                disabled
+              /><label for="diabetes"><b>Diabetes</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="trastorno_emocional"
+                name="sintomas"
+                value="trastorno_emocional"
+                disabled
+              /><label for="trastorno_emocional"
+                ><b>Trastorno Emocional</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="trastornos_epilepticos"
+                name="sintomas"
+                value="trastornos_epilepticos"
+                disabled
+              /><label for="trastornos_epilepticos"
+                ><b>Trastornos Epilépticos</b></label
+              >
+            </div>
+
+            <!--quinta columna-->
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="desmayo"
+                name="sintomas"
+                value="desmayo"
+                disabled
+              /><label for="desmayo"><b>Desmayo</b> </label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="calculos"
+                name="sintomas"
+                value="calculos"
+                disabled
+              /><label for="calculos"><b>Cálculos en los Riñones</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="enfermedad_corazon"
+                name="sintomas"
+                value="enfermedad_corazon"
+                disabled
+              /><label for="enfermedad_corazon"
+                ><b>Enfermedad del Corazón</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="fiebre_amarilla"
+                name="sintomas"
+                value="fiebre_amarilla"
+                disabled
+              /><label for="fiebre_amarilla"><b>Fiebre amarilla</b> </label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="hipertension"
+                name="sintomas"
+                value="hipertension"
+                disabled
+              /><label for="hipertension"><b>Hipertensión</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="problemas_digestivos"
+                name="sintomas"
+                value="problemas_digestivos"
+                disabled
+              /><label for="problemas_digestivos"
+                ><b>Problemas Digestivos</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="colitis_ulcerativa"
+                name="sintomas"
+                value="colitis_ulcerativa"
+                disabled
+              /><label for="colitis_ulcerativa"
+                ><b>Colitis Ulcerativa</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="ulcera"
+                name="sintomas"
+                value="ulcera"
+                disabled
+              /><label for="ulcera"><b>Úlcera</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="hepatitis"
+                name="sintomas"
+                value="hepatitis"
+                disabled
+              /><label for="hepatitis"><b>Hepatitis</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="apnea_nocturna"
+                name="sintomas"
+                value="apnea_nocturna"
+                disabled
+              /><label for="apnea_nocturna"><b>Apnea nocturna</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="problemas_tiroides"
+                name="sintomas"
+                value="problemas_tiroides"
+                disabled
+              /><label for="problemas_tiroides"
+                ><b>Problemas de tiroides</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="tuberculosis"
+                name="sintomas"
+                value="tuberculosis"
+                disabled
+              /><label for="tuberculosis"><b>Tuberculosis</b></label>
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="problemas_neurologicos"
+                name="sintomas"
+                value="problemas_neurologicos"
+                disabled
+              /><label for="problemas_neurologicos"
+                ><b>Problemas Neurológicos</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="problemas_sangrado"
+                name="sintomas"
+                value="problemas_sangrado"
+                disabled
+              /><label for="problemas_sangrado"
+                ><b>Problemas de sangrado</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="problemas_pulmonares"
+                name="sintomas"
+                value="problemas_pulmonares"
+                disabled
+              /><label for="problemas_pulmonares"
+                ><b>Problemas pulmonares</b></label
+              >
+            </div>
+
+            <div class="patologias">
+              <input
+                type="checkbox"
+                id="apendicitis"
+                name="sintomas"
+                value="apendicitis"
+                disabled
+              /><label for="apendicitis"><b>Apendicitis</b></label>
+            </div>
+
+            <div class="otro">
+              <label for="otro"><b>Otro:</b></label>
+              <input type="text" id="otro" name="sintomas" disabled />
+            </div>
+          </div>
+          <br />
+        </fieldset>
+      </div>
+
+      <!-- Antecedentes personales y familiares -->
+      <div class="container">
+        <fieldset class="cuadro-formulario">
+          <legend class="legenda">
+            <b>Antecedentes Personales y Familiares</b>
+          </legend>
+          <br />
+          <div class="grid-container1">
+            <!-- primera columna-->
+            <div>
+              <label
+                ><b
+                  >¿Antecedentes familiares de
+                  <pre></pre>
+                  enfermedades mentales?:</b
+                ></label
+              >
+              <br />
+              <div class="radio-group2">
+                <label for="antecFamiliares">
+                  <input
+                    type="radio"
+                    id="si"
+                    name="antecFamiliares"
+                    value="si"
+                    disabled
+                  />Sí
+                </label>
+                <label for="antecFamiliares">
+                  <input
+                    type="radio"
+                    id="no"
+                    name="antecFamiliares"
+                    value="no"
+                    disabled
+                  />No
+                </label>
+              </div>
+            </div>
+
+            <div id="pregunta_extra1" style="display: none">
+              <div>
+                <label for="respuesta_extra1"><b>¿Cuáles?:</b></label>
+                <textarea
+                  id="respuesta_extra1"
+                  name="cuales"
+                  rows="4"
+                  cols="50"
+                  maxlength="500"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <label
+                ><b
+                  >¿Ha tenido pensamientos
+                  <pre></pre>
+                  suicidas o autolesivos?:</b
+                ></label
+              >
+              <br />
+              <div class="radio-group2">
+                <label for="pensaSuicidas">
+                  <input
+                    type="radio"
+                    id="s"
+                    name="pensaSuicidas"
+                    value="si"
+                    disabled
+                  />Sí
+                </label>
+                <label for="pensaSuicidas">
+                  <input
+                    type="radio"
+                    id="n"
+                    name="pensaSuicidas"
+                    value="no"
+                    disabled
+                  />No
+                </label>
+              </div>
+            </div>
+
+            <div id="pregunta_extra2" style="display: none">
+              <div>
+                <label for="respuesta_extra2"
+                  ><b>¿Ha recibido apoyo o tratamiento?:</b></label
+                >
+                <textarea
+                  id="respuesta_extra2"
+                  name="apoyoTratamiento"
+                  cols="50"
+                  maxlength="500"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <!--segunda columna-->
+
+            <div>
+              <label for="consumoSustancias"
+                ><b
+                  >Consume alguna sustancias (tabaco, alcohol, estupefacientes,
+                  otros):</b
+                ></label
+              >
+              <input
+                type="text"
+                id="consumoSustancias"
+                name="consumoSustancias"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="calidadSueno"
+                ><b>Calidad del sueño (Buena/Regular/Mala):</b></label
+              >
+              <input
+                type="text"
+                id="calidadSueno"
+                name="calidadSueno"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="observaviones"><b>Observaciones:</b></label>
+              <textarea
+                id="observaciones"
+                name="observaciones"
+                cols="50"
+                maxlength="500"
+                disabled
+              ></textarea>
+            </div>
+          </div>
+
+          <br />
+        </fieldset>
+      </div>
+
+      <!--Historia Familiar y Personal-->
+      <!--Historia Familiar-->
+
+      <div id="form_historia" style="display: none">
+        <div class="container">
+          <fieldset class="cuadro-formulario">
+            <legend class="legenda">
+              <b>Historia Familiar y Personal</b>
+            </legend>
+            <br />
+            <!--<input type="hidden" id="id_paciente" name="id_paciente" value="" />-->
+
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="historiaFamiliar"><b>Historia Familiar:</b></label>
+                <textarea
+                  id="historiaFamiliar"
+                  name="historiaFamiliar"
+                  rows="4"
+                  cols="50"
+                  maxlength="5000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <!--Historia Personal-->
+
+            <br />
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="historiaPersonal"><b>Historia Personal:</b></label>
+                <textarea
+                  id="historiaPersonal"
+                  name="historiaPersonal"
+                  rows="4"
+                  cols="50"
+                  maxlength="5000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <br />
+          </fieldset>
+        </div>
+
+        <!--Signos y Sintomas-->
+
+        <div class="container">
+          <fieldset class="cuadro-formulario">
+            <legend class="legenda">
+              <b>Signos y Sintomas</b>
+            </legend>
+            <br />
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="signosSintomas"></label>
+                <textarea
+                  id="signosSintomas"
+                  name="signosSintomas"
+                  rows="4"
+                  cols="50"
+                  maxlength="5000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+            <br />
+          </fieldset>
+        </div>
+
+        <!--Apertura Psicológica-->
+
+        <div class="container">
+          <fieldset class="cuadro-formulario">
+            <legend class="legenda">
+              <b>Apertura Psicológica</b>
+            </legend>
+            <br />
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="apertPsicologica"></label>
+                <textarea
+                  id="apertPsicologica"
+                  name="apertPsicologica"
+                  rows="4"
+                  cols="50"
+                  maxlength="5000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+            <br />
+          </fieldset>
+        </div>
+
+        <!--Hipótesis Diagnóstica-->
+        <!--DSM-5-->
+
+        <div class="container">
+          <fieldset class="cuadro-formulario">
+            <legend class="legenda">
+              <b>Hipótesis Diagnóstica</b>
+            </legend>
+            <br />
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="Dsm5"><b>DSM-5:</b></label>
+                <textarea
+                  id="Dsm5"
+                  name="Dsm5"
+                  rows="4"
+                  cols="50"
+                  maxlength="5000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+
+            <!--CIE 10-->
+
+            <br />
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="Cie10"><b>CIE 10:</b></label>
+                <textarea
+                  id="Cie10"
+                  name="Cie10"
+                  rows="4"
+                  cols="50"
+                  maxlength="5000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+            <br />
+          </fieldset>
+        </div>
+
+        <!--Metas Terapéuticas-->
+
+        <div class="container">
+          <fieldset class="cuadro-formulario">
+            <legend class="legenda">
+              <b>Metas Terapéuticas</b>
+            </legend>
+            <br />
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="metaTerapeuta"></label>
+                <textarea
+                  id="metaTerapeuta"
+                  name="metaTerapeuta"
+                  rows="4"
+                  cols="50"
+                  maxlength="5000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+            <br />
+          </fieldset>
+        </div>
+
+        <!--Plan de Tratamiento-->
+
+        <div class="container">
+          <fieldset class="cuadro-formulario">
+            <legend class="legenda">
+              <b>Plan de Tratamiento</b>
+            </legend>
+            <br />
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="planTratamiento"></label>
+                <textarea
+                  id="planTratamiento"
+                  name="planTratamiento"
+                  rows="4"
+                  cols="50"
+                  maxlength="3000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+            <br />
+          </fieldset>
+        </div>
+
+        <!--Evolución del Paciente-->
+
+        <div class="container">
+          <fieldset class="cuadro-formulario">
+            <legend class="legenda">
+              <b>Evolución del Paciente</b>
+            </legend>
+            <br />
+            <div class="grid-containerHistoria">
+              <div>
+                <label for="evoPaciente"></label>
+                <textarea
+                  id="evoPaciente"
+                  name="evoPaciente"
+                  rows="4"
+                  cols="50"
+                  maxlength="3000"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+            <br />
+          </fieldset>
+        </div>
+      </div>
+
+      <!--Botones-->
+      <div class="buton-contenedor">
+        <button
+          class="btn-buscar"
+          type="button"
+          id="btnBuscar"
+          onclick="buscarPaciente()"
+          title="Buscar por tipo y número de documento"
+        >
+          <i class="icon-magnifying-glass"></i>
+        </button>
+        <button
+          type="submit"
+          title="Guardar"
+          class="btn-guardar"
+          id="btnGuardar"
+          style="display: none"
+        >
+          <i class="icon-save"></i>
+        </button>
+
+        <button
+          type="reset"
+          id="Limpiar"
+          onclick="limpiarFormulario()"
+          title="Limpiar"
+          class="btn-limpiar"
+        >
+          <i class="icon-clipboard"></i>
+        </button>
+
+        <button
+          type="button"
+          title="Editar"
+          id="editar"
+          class="btn-editar"
+          onclick="habilitarEdicion()"
+          style="display: none"
+        >
+          <i class="icon-pencil1"></i>
+        </button>
+      </div>
+    </form>
+    <br />
+
+    <!-- Pie de página -->
+    <footer>
+      <% if (typeof datos !== 'undefined' && datos && datos.useusu) { %> Ha
+      iniciado sesión como <%= datos.useusu.toUpperCase() %> <% } else { %>
+      <script>
+        window.location.href = "/";
+      </script>
+      <% } %>
+      <span id="fecha"></span>
+    </footer>
+
+    <script>
+      //obtener y mostrar la fecha en el pie de página
+      const fechaActual = new Date();
+      const opcionesFecha = { year: "numeric", month: "long", day: "numeric" };
+      document.getElementById("fecha").textContent =
+        fechaActual.toLocaleDateString("es-ES", opcionesFecha);
+    </script>
+
+    <script>
+      // Evita que el botón atrás muestre páginas cacheadas
+      window.onload = function () {
+        if (!window.performance || performance.navigation.type === 2) {
+          location.reload(true);
+        }
+      };
+    </script>
+
+    <script src="/JS/menú-y-Submenú.js"></script>
+    <script src="/JS/cerrarMensaje.js"></script>
+    <script src="/JS/historia_Clinia.js"></script>
+    <script src="/JS/ocultar.js"></script>
+    <script src="/JS/cerrarSesion.js"></script>
+  </body>
+</html>

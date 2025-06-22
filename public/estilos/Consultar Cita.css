@@ -459,7 +459,7 @@ td.acciones {
   top: 48%;
   left: 470px;
   transform: translateY(-50%);
-  background-image: url("/public/img/calendary.png"); /* URL del icono personalizado */
+  background-image: url("/img/calendary.png"); /* URL del icono personalizado */
   background-size: 23px 23px;
   width: 23px;
   height: 23px;
@@ -493,7 +493,7 @@ td.acciones {
   top: 48%;
   left: 470px;
   transform: translateY(-50%);
-  background-image: url("/public/img/reloj1.png"); /* URL del icono personalizado */
+  background-image: url("/img/reloj1.png"); /* URL del icono personalizado */
   background-size: 23px 23px;
   width: 23px;
   height: 23px;

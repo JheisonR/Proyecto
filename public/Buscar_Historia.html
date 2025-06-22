@@ -1,0 +1,109 @@
+<!DOCTYPE >
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historia Clínica - PsicoGESTOR</title>
+    <link rel="stylesheet" href="/public/estilos/Buscar Historia.css" />
+    <link rel="stylesheet" href="/public/estilos/fonts.css" />
+  </head>
+
+  <body>
+    <!-- Encabezado -->
+    <header>
+      <!-- Munú-->
+      <div class="menu">
+        <button id="MenuButton">☰</button>
+        <div id="myMenu" class="menu-contenido">
+          <div class="items-menu">
+            <button class="submenu-button">Gestionar Citas</button>
+            <div class="submenu-contenido">
+              <a href="Crear Cita.html">Crear Cita</a>
+              <a href="Consultar Cita.html">Consultar Cita</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Historial de Pacientes</button>
+            <div class="submenu-contenido">
+              <a href="Buscar_Historia.html">Historia Clinica</a>
+              <a href="Autorizaciones.html">Autorizaciones</a>
+              <a href="Tratamientos.html">Tratamientos</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Notas Clínicas</button>
+            <div class="submenu-contenido">
+              <a href="Consultar Notas.html">Consultar Notas</a>
+            </div>
+          </div>
+          <div class="items-menu">
+            <button class="submenu-button">Progreso de Paciente</button>
+            <div class="submenu-contenido">
+              <a href="Buscar Paciente.html">Buscar Paciente</a>
+            </div>
+          </div>
+          <div class="cerrar_sesion">
+            <a href="Inicio.html">
+              <span class="icon-log-out"></span>Cerrar Sesión</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- titulo de bienvenido y logo de encabezado-->
+      <h1>Historia Clínica</h1>
+      <div class="Logo-contenedor">
+        <a href="Bienvenido.html">
+          <img
+            src="img/Logo psicogestor.png"
+            alt="logo"
+            width="50"
+            style="
+              vertical-align: middle;
+              right: 16.5%;
+              display: flex;
+              position: absolute;
+              padding: auto;
+              top: 11px;
+            "
+        /></a>
+        <span class="logo-text"><b>PsicoGESTOR</b></span>
+      </div>
+    </header>
+
+    <!--buscador de historia clínica por cédula del paciente -->
+    <div class="buscador">
+      <h5 class="Documento">Documento del paciente</h5>
+      <input
+        class="buscarHistoria"
+        type="text"
+        id="buscarhistoria"
+        placeholder="Buscar"
+      />
+      <button
+        class="botonBuscar"
+        id="botonBuscar"
+        onclick="buscarHistoria()"
+        title="Buscar"
+      >
+        Buscar
+      </button>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+      Ha iniciado sesión como Jheison Ramirez <span id="fecha"></span>
+    </footer>
+
+    <script>
+      //obtener y mostrar la fecha en el pie de página
+      const fechaActual = new Date();
+      const opcionesFecha = { year: "numeric", month: "long", day: "numeric" };
+      document.getElementById("fecha").textContent =
+        fechaActual.toLocaleDateString("es-ES", opcionesFecha);
+    </script>
+
+    <script src="/public/JS/menú-y-Submenú.js"></script>
+  </body>
+</html>

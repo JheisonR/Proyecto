@@ -194,7 +194,7 @@ header h1 {
   width: 250px;
   margin-bottom: 1px;
   border-radius: 10px;
-  padding: 3px;
+  padding: 3px 7px 3px 9px;
   border: 2px solid #052661;
   box-sizing: border-box;
   background-color: rgb(147, 217, 250);
@@ -219,7 +219,7 @@ select {
   width: 250px;
   margin-bottom: 1px;
   border-radius: 10px;
-  padding: 3px;
+  padding: 3px 7px 3px 9px;
   border: 1px solid #052661;
   box-sizing: border-box;
   background-color: rgb(255, 254, 254);
@@ -227,7 +227,7 @@ select {
 }
 textarea {
   font-family: "Bookman Old Style";
-  padding: 5px 5px 5px 5px;
+  padding: 7px 7px 7px 7px;
   margin-bottom: 1px;
   border-radius: 10px;
   height: 150px;

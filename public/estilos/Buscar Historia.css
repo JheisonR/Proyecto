@@ -6,6 +6,9 @@ body {
   background-image: url("/public/img/Fondo\ bienvenido.jpg");
   background-size: cover;
   background-position: center;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 /* Estilos para el encabezado */

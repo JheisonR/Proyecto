@@ -48,7 +48,7 @@ function buscarPaciente() {
     });
 }
 
-// Función para resetear el formulario (opcional)
+// Función para resetear el formulario
 function limpiarFormulario() {
   document.getElementById("btnBuscar").style.display = "block";
   document.getElementById("btnGuardar").style.display = "none";

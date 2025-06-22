@@ -83,7 +83,7 @@ async function consultarPaciente() {
 // ABRIR MODAL PARA REAGENDAR
 function abrirModal(idCita) {
   document.getElementById("cita-id").value = idCita;
-  document.getElementById("reprogramar-modal").style.display = "block";
+  document.getElementById("reprogramar-modal").style.display = "flex";
 }
 
 // CERRAR MODAL
